@@ -1,7 +1,7 @@
 .inputBlock {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 
     &__label {
         font-family: 'Inter', sans-serif;
@@ -14,7 +14,7 @@
     }
 
     &__input {
-        padding-bottom: 7px;
+        padding-bottom: 3px;
         border: none;
         border-bottom: 1px solid #BDB0CC;
         font-family: 'Inter', sans-serif;
@@ -29,9 +29,11 @@
             color: #999999;
         }
 
-        &:focus, :active, :focus-visible {
+        &:focus,
+        :active,
+        :focus-visible {
             outline: none;
-            background-color: transparent  !important;
+            background-color: transparent !important;
         }
     }
 

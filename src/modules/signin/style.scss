@@ -6,11 +6,11 @@
 }
 
 .signin {
-    
+
     &__container {
         display: flex;
         flex-direction: column;
-        width:  340px;
+        width: 340px;
         height: 450px;
         box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
         border-radius: 12px;
@@ -27,7 +27,7 @@
     &__title {
         font-family: 'Inter', sans-serif;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 20px;
         text-align: center;
         margin: 0;
@@ -35,16 +35,15 @@
         cursor: default;
     }
 
-    &__wrapper {
+    &_wrapper {
         display: flex;
-        margin-bottom: 16px;
+        margin-bottom: 90px;
         border: none;
     }
 
-    &__button{
+    &__button {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         gap: 14px;
     }
 }

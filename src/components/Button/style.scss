@@ -3,7 +3,7 @@
 .button {
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 20px;
     font-size: 13px;
     line-height: 13px;
@@ -19,8 +19,9 @@
         color: #FFFFFF;
     }
 
-    &:hover, :active, :focus {
+    &:hover,
+    :active,
+    :focus {
         opacity: 70%;
     }
 }
-

@@ -1,0 +1,52 @@
+@import '../../variables/variables';
+
+.error {
+
+
+    &__container {
+        margin-top: 280px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        text-align: center;
+        color: $main-color;
+        font-size: 40px;
+        margin: 0;
+        padding-bottom: 20px;
+    }
+
+    &__subtitle {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        text-align: center;
+        color: $main-color;
+        font-size: 20px;
+        margin: 0;
+        padding-bottom: 69px;
+    }
+
+    &__link {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 11px;
+        text-align: center;
+        text-decoration: none;
+        background: transparent;
+        color: $link-color;
+        cursor: pointer;
+
+        &:hover,
+        :active,
+        :focus {
+            opacity: 70%;
+        }
+    }
+
+}
