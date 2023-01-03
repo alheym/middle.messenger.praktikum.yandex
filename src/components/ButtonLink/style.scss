@@ -1,3 +1,5 @@
+@import '../../variables/variables';
+
 .buttonLink{
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -5,7 +7,7 @@
     line-height: 11px;
     border: none;
     cursor: pointer;
-    color: #1B0835;
+    color: $link-color;
     background: transparent;
 
     
@@ -13,14 +15,3 @@
         opacity: 70%;
     }
 }
-
-// .buttonLink_red {
-//     color: #FF0000;
-// }
-
-// .buttonLink_center{
-//     font-size: 11px;
-//     line-height: 11px;
-//    text-align: center;
-
-// }

@@ -4,8 +4,8 @@
   "description": "---",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/index.html src/pages/signin/signin.html",
-    "build": "parcel build src/index.html src/pages/signin/signin.html"
+    "dev": "parcel src/index.html src/pages/signin/signin.html src/pages/signup/signup.html",
+    "build": "parcel build src/index.html src/pages/signin/signin.html src/pages/signup/signup.html"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.2",
     "express": "^4.18.2",
+    "handlebars": "^4.7.7",
     "parcel": "^2.8.2",
     "parcel-transformer-hbs": "^1.0.4",
     "sass": "^1.57.1"

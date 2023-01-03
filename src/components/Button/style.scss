@@ -1,3 +1,5 @@
+@import '../../variables/variables';
+
 .button {
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -13,7 +15,7 @@
     padding: 12px;
 
     &__primary {
-        background: #BAADC9;
+        background: $main-color;
         color: #FFFFFF;
     }
 
