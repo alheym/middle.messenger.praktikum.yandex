@@ -1,0 +1,48 @@
+.inputBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__label {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 9px;
+        margin: 0;
+        color: #999999;
+        cursor: default;
+    }
+
+    &__input {
+        padding-bottom: 7px;
+        border: none;
+        border-bottom: 1px solid #BDB0CC;
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        color: #1E1E1E;
+
+        &::placeholder {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #999999;
+        }
+
+        &:focus, :active, :focus-visible {
+            outline: none;
+            background-color: transparent  !important;
+        }
+    }
+
+    &__message {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 8px;
+        margin: 0;
+        color: #FF2F2F;
+        cursor: default;
+    }
+
+}

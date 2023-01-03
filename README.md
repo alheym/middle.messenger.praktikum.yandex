@@ -81,3 +81,11 @@ README — первое, что прочитает пользователь, к�
 - «[Вебпак](https://github.com/webpack/webpack)»,
 - «[ТДенгине](https://github.com/taosdata/TDengine)»,
 - «[Соул-хантинг](https://github.com/vladpereskokov/soul-hunting/)».
+
+
+### UI
+https://www.figma.com/file/yADVuj8HwHwK5jsdOhMwFK/messenger.yandex.praktikum?node-id=0%3A1&t=cglmZwQqwuhoaXu0-1
+
+
+### Netlify
+https://rococo-zuccutto-fc4840.netlify.app
