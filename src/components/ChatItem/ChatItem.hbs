@@ -1,0 +1,16 @@
+<div class="chat__item" id={{id}}>
+    <div class="chat__wrapper">
+        <div class="chat__avatar">
+        </div>
+        <div class="chat__block">
+            <h3 class="chat__block-name fs fs-13 fw">{{name}}</h3>
+            <p class="chat__block-message fs fs-12 lh">{{text}}</p>
+        </div>
+        <div class="chat__info">
+            <p class="chat__info-time fs fs-9 lh">{{time}}</p>
+            {{#if uread}}
+            <p class="chat__info-check fs fs-11 lh">{{uread}}</p>
+            {{/if}}
+        </div>
+    </div>
+</div>

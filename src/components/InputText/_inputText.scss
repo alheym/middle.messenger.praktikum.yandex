@@ -1,13 +1,11 @@
+@import '../../variables/font';
+
 .inputBlock {
     display: flex;
     flex-direction: column;
     gap: 4px;
 
     &__label {
-        font-family: 'Inter', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 9px;
         margin: 0;
         color: #999999;
         cursor: default;
@@ -17,15 +15,9 @@
         padding-bottom: 3px;
         border: none;
         border-bottom: 1px solid #BDB0CC;
-        font-family: 'Inter', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 13px;
         color: #1E1E1E;
 
         &::placeholder {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
             color: #999999;
         }
 
@@ -38,13 +30,8 @@
     }
 
     &__message {
-        font-family: 'Inter', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 8px;
         margin: 0;
         color: #FF2F2F;
         cursor: default;
     }
-
 }

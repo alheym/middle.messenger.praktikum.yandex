@@ -1,0 +1,45 @@
+@import '../../variables/variables';
+@import '../../variables/font';
+
+.button {
+    text-align: center;
+
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+
+    &__primary {
+        background: $main-color;
+        color: #FFFFFF;
+    }
+
+    &__link {
+        color: $link-color;
+        background: transparent;
+    }
+
+    &__add {
+        margin-right: 10px;
+        width: 32px;
+        height: 32px;
+        background-color: white;
+        background-image: url('../../image/add.svg');
+    }
+
+    &__send {
+        margin-left: 10px;
+        width: 32px;
+        height: 32px;
+        background-color: white;
+        background-image: url('../../image/btn.svg');
+        background-repeat: no-repeat;
+    }
+
+    &:hover,
+    :active,
+    :focus {
+        opacity: 70%;
+    }
+
+}

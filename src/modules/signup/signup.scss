@@ -1,3 +1,5 @@
+@import '../../variables/font';
+
 .main {
     margin-top: 10%;
     display: flex;
@@ -5,13 +7,13 @@
     justify-content: center;
 }
 
-.signin {
+.signup {
 
     &__container {
         display: flex;
         flex-direction: column;
         width: 340px;
-        height: 450px;
+        height: 615px;
         box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
         border-radius: 12px;
     }
@@ -25,10 +27,6 @@
     }
 
     &__title {
-        font-family: 'Inter', sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
         text-align: center;
         margin: 0;
         color: #1E1E1E;
@@ -37,13 +35,12 @@
 
     &_wrapper {
         display: flex;
-        margin-bottom: 90px;
+        margin-bottom: 20px;
         border: none;
     }
 
     &__button {
         display: flex;
         flex-direction: column;
-        gap: 14px;
     }
 }

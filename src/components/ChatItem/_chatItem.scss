@@ -1,0 +1,74 @@
+@import '../../variables/variables';
+
+.chat {
+    &__item {
+        height: 71px;
+        margin: 0 5px;
+        border-top: 1px solid #eaeaea;
+
+        &:last-child {
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        &:hover,
+        :active,
+        :focus {
+            background-color: #CABDDD;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 215px 1fr;
+        padding-top: 12px;
+    }
+
+    &__avatar {
+        width: 47px;
+        height: 47px;
+        background: #EFEFEF;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-left: 4px;
+        cursor: default;
+    }
+
+    &__block {
+
+        &-name {
+            color: #1E1E1E;
+            margin: 0;
+            cursor: default;
+        }
+
+        &-message {
+            color: $msgList-color;
+            margin-top: 4px;
+            cursor: default;
+        }
+    }
+
+    &__info {
+
+        &-time {
+            color: $msgList-color;
+            margin: 0;
+            cursor: default;
+        }
+
+        &-check {
+            color: white;
+            display: flex;
+            align-items: center;
+            place-content: center;
+
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #A28ABE;
+
+            margin-bottom: 12px;
+            cursor: default;
+        }
+    }
+}

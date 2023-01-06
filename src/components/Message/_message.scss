@@ -1,0 +1,55 @@
+@import '../../variables/variables';
+
+.message {
+    max-width: 402px;
+    min-width: 114px;
+    background: #F8F8F8;
+    border-radius: 12px;
+    border-top-left-radius: unset;
+    padding: 11px;
+
+    &__text {
+        color: #1E1E1E;
+        margin: 0;
+        cursor: default;
+    }
+
+    &__img {
+        max-width: 315px;
+        background-color: white;
+    }
+
+    &__you {
+        align-self: end;
+        background: #E4EDFD;
+        border-top-left-radius: 12px;
+        border-bottom-right-radius: unset;
+        color: #3369F3;
+    }
+
+    &__comp {
+        align-self: start;
+    }
+
+    &__infMsg {
+        display: flex;
+        justify-content: end;
+
+        &-time {
+            max-height: 9px;
+            color: #1B0835;
+            margin: 0;
+            cursor: default;
+        }
+
+        &-check {
+            margin: 3px 0 0;
+            width: 10px;
+            height: 4px;
+            background-image: url('../../image/check.svg');
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+    }
+
+}

@@ -1,0 +1,66 @@
+.fs {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+
+    &-40 {
+        font-size: 40px;
+    }
+
+    &-20 {
+        font-size: 20px;
+
+        &.fw {
+            font-weight: 600;
+        }
+    }
+
+    &-13 {
+        font-size: 13px;
+        line-height: 13px;
+
+        &.fw {
+            font-weight: 600;
+        }
+        
+        &.fw4 {
+            font-weight: 400;
+        }
+    }
+
+    &-12 {
+        font-size: 12px;
+
+        &.lh {
+            line-height: 15px;
+        }
+
+    }
+
+    &-11 {
+        font-size: 11px;
+        line-height: 11px;
+
+        &.lh {
+            line-height: 12px;
+        }
+    }
+
+    &-9 {
+        font-size: 9px;
+
+        &.fw {
+            font-weight: 400;
+        }
+
+        &.lh {
+            line-height: 13px;
+        }
+    }
+
+    &-8 {
+        font-weight: 400;
+        font-size: 8px;
+    }
+
+}

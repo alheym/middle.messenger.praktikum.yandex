@@ -1,9 +1,9 @@
-import './style.scss';
+import './_error.scss';
 import ErrorPageTmpl from './Error.hbs';
 
 export default function (title, subtitle, link, linkText) {
 
-    return  ErrorPageTmpl({
+    return ErrorPageTmpl({
         title,
         subtitle,
         link,
