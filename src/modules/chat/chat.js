@@ -110,13 +110,13 @@ export default function Chat() {
 
     const profileList = profile.map((item) => {
         return Profile(item.id, item.profileName, item.email, item.login, item.phone, item.second_name);
-
     }).join('');
 
     const editEmail = [
         {
             title: 'Редактирование почты',
             label: 'Почта',
+            name: 'email',
             type: 'email',
             placeholder: 'pochta@yandex.ru',
             classEdit: 'edit__email',
@@ -127,6 +127,7 @@ export default function Chat() {
             {
                 title: 'Редактирование логина',
                 label: 'Логин',
+                name: 'login',
                 type: 'login',
                 placeholder: 'ivanivanov',
                 classEdit: 'edit__login',
@@ -137,6 +138,7 @@ export default function Chat() {
             {
                 title: 'Редактирование телефона',
                 label: 'Телефон',
+                name: 'phone',
                 type: 'phone',
                 placeholder: '+7(909) 967 30 30',
                 classEdit: 'edit__phone',
@@ -147,6 +149,7 @@ export default function Chat() {
             {
                 title: 'Редактирование имени',
                 label: 'Имя',
+                name: 'first_name',
                 type: 'first_name',
                 placeholder: 'Иван',
                 classEdit: 'edit__name',
@@ -157,6 +160,7 @@ export default function Chat() {
             {
                 title: 'Редактирование фамилии',
                 label: 'Фамилия',
+                name: 'second_name',
                 type: 'second_name',
                 placeholder: 'Иванов',
                 classEdit: 'edit__scName',
@@ -167,6 +171,7 @@ export default function Chat() {
             {
                 title: 'Старый пароль',
                 label: 'Старый пароль',
+                name: 'password',
                 type: 'password',
                 placeholder: '•••••••••',
                 classEdit: 'edit__password',
@@ -178,27 +183,27 @@ export default function Chat() {
         ];
 
     const editEmailWindow = editEmail.map((item) => {
-        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+        return Edit(item.title, item.label, item.name, item.type, item.placeholder, item.classEdit, item.pass);
     }).join('');
 
     const editLoginWindow = editLogin.map((item) => {
-        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+        return Edit(item.title, item.label, item.name, item.type, item.placeholder, item.classEdit, item.pass);
     }).join('');
 
     const editPhoneWindow = editPhone.map((item) => {
-        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+        return Edit(item.title, item.label, item.name, item.type, item.placeholder, item.classEdit, item.pass);
     }).join('');
 
     const editFirstNameWindow = editFirstName.map((item) => {
-        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+        return Edit(item.title, item.label, item.name, item.type, item.placeholder, item.classEdit, item.pass);
     }).join('');
 
     const editSecondNameWindow = editSecondName.map((item) => {
-        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+        return Edit(item.title, item.label, item.name, item.type, item.placeholder, item.classEdit, item.pass);
     }).join('');
 
     const editPassWindow = editPass.map((item) => {
-        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass, item.labelNewPass, item.labelRetPass, item.placeholderNew);
+        return Edit(item.title, item.label, item.name, item.type, item.placeholder, item.classEdit, item.pass, item.labelNewPass, item.labelRetPass, item.placeholderNew);
     }).join('');
 
     return ChatList({

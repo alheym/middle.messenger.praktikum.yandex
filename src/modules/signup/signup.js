@@ -31,7 +31,7 @@ export default function Signup() {
     },
     { 
         id: 'first_name', 
-        name: 'name', 
+        name: 'first_name', 
         type: 'text', 
         label: 'Имя', 
         placeholder: 'Имя', 
@@ -82,11 +82,10 @@ export default function Signup() {
     ];
 
     const content = SignupTmpl({
-        btnPrimary: Button('Зарегистрироваться', 'button__primary fs fs-13'),
+        btnPrimary: Button('Зарегистрироваться', 'button__primary fs fs-13', 'submit'),
         btnLink: Button('Войти', 'button__link fs fs-11'),
         wrapper: Wrapper(inputList, 'signup_wrapper'),
     });
 
     return content;
 }
-

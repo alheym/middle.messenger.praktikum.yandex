@@ -30,7 +30,7 @@ export default function Signin() {
     ];
 
     const content = SigninTmpl({
-        btnPrimary: Button('Войти', 'button__primary fs fs-13'),
+        btnPrimary: Button('Войти', 'button__primary fs fs-13', 'submit'),
         btnLink: Button('Нет аккаунта?', 'button__link fs fs-11'),
         wrapper: Wrapper(inputList, 'signin_wrapper'),
     });

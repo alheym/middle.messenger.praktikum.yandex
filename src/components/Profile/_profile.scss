@@ -5,7 +5,7 @@
 
     &__menu {
         position: fixed;
-        background-color: #DAD3E1;
+        background-color: #d0c7da;
         top: 0;
         left: 0;
         z-index: 10;
@@ -80,7 +80,7 @@
 
             &:hover,
             :active {
-                background-color: #CABDDD;
+                background-color: $main-color;
             }
         }
 
@@ -125,8 +125,6 @@
         height: 33px;
         font-size: 13px;
         text-align: left;
-
-
     }
 
     &.red {

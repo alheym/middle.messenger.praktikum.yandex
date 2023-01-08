@@ -1,7 +1,7 @@
 import './_button.scss';
 import ButtonTmpl from './Button.tmpl.hbs';
 
-export default function (text, className) {
+export default function (text, className, type) {
 
-    return ButtonTmpl({ text, className });
+    return ButtonTmpl({ text, className, type });
 }
