@@ -38,6 +38,26 @@
                 background-position: center;
                 margin-right: 12px;
                 cursor: pointer;
+                z-index: 2;
+
+                &::before {
+                    height: 58px;
+                    width: 58px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    text-align: center;
+                    content: 'Поменять аватар';
+                    background: #000000;
+                    opacity: 0;
+                    border-radius: 50%;
+                    transition: all .6s;
+                }
+
+                &:hover:before {
+                    opacity: 0.5;
+                }
             }
         }
 
