@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html src/pages/signin/signin.html src/pages/signup/signup.html src/pages/404/404.html src/pages/500/500.html src/pages/chat/chat.html --no-cache", 
-    "build": "parcel build src/index.html src/pages/signin/signin.html src/pages/404/404.html src/pages/500/500.html src/pages/chat/chat.html --no-cache"
+    "build": "parcel build src/index.html src/pages/signin/signin.html src/pages/404/404.html src/pages/500/500.html src/pages/chat/chat.html --no-cache",
+    "start": "node ./server.js"
   },
   "repository": {
     "type": "git",
