@@ -15,6 +15,18 @@
         }
     }
 
+    &-15 {
+        font-size: 15px;
+
+        &.lh {
+            line-height: 20px;
+        }
+
+        &.fw {
+            font-weight: 600;
+        }
+    }
+
     &-13 {
         font-size: 13px;
         line-height: 13px;
@@ -22,7 +34,7 @@
         &.fw {
             font-weight: 600;
         }
-        
+
         &.fw4 {
             font-weight: 400;
         }

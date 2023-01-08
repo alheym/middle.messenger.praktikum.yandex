@@ -7,6 +7,12 @@ body {
 }
 
 .chat {
+
+    &__edit {
+        width: 340px;
+        height: 257px;
+    }
+    
     &__container {
         height: 96vh;
         display: flex;

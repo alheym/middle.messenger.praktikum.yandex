@@ -1,0 +1,23 @@
+<div class="edit {{classEdit}}">
+    <p class="edit__title fs fs-15 lh fw">{{title}}</p>
+    <div class="edit__wrap">
+        <p class="edit__label fs fs-13">{{label}}</p>
+        <input name="{{type}}" type="{{type}}" placeholder="{{placeholder}}" class="edit__input fs fs-13" />
+    </div>
+    {{#if pass}}
+    <div class="edit__wrap">
+        <p class="edit__label fs fs-13">{{labelNewPass}}</p>
+        <input type="{{type}}" placeholder="{{placeholderNew}}" class="edit__input fs fs-13" />
+    </div>
+    <div class="edit__wrap last">
+        <p class="edit__label fs fs-13">{{labelRetPass}}</p>
+        <input type="{{type}}" placeholder="{{placeholderNew}}" class="edit__input fs fs-13" />
+    </div>
+
+    {{/if}}
+
+    <div class="edit__btn">
+        {{{btnCancel}}}
+        {{{btnSave}}}
+    </div>
+</div>

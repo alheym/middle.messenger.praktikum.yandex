@@ -7,9 +7,8 @@ export default function NotFound() {
         error: Error(
             '404',
             'Не туда попали',
-            './chatList.html',
+            '../../pages/Chat/Chat.html',
             'Назад к чатам'
-
         )
     });
 }

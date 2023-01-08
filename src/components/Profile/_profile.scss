@@ -42,19 +42,25 @@
         }
 
         &-info {
-            padding: 15px;
+            padding: 0px;
         }
 
         &-item {
             border-bottom: 1px solid #eaeaea;
             justify-content: space-between;
-            margin-bottom: 10px;
+            padding-bottom: 10px;
             display: flex;
             height: 33px;
             cursor: pointer;
+            padding: 5px 15px 0;
 
             &:first-child {
                 border-top: 1px solid #eaeaea;
+            }
+
+            &:hover,
+            :active {
+                background-color: #CABDDD;
             }
         }
 
@@ -79,7 +85,9 @@
             padding: 15px;
             margin-top: 95px;
 
+
             &-btn {
+                cursor: pointer;
                 border-bottom: 1px solid #eaeaea;
 
                 &:first-child {
@@ -97,6 +105,8 @@
         height: 33px;
         font-size: 13px;
         text-align: left;
+
+
     }
 
     &.red {

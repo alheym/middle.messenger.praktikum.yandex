@@ -1,4 +1,3 @@
-
 import './signup.scss';
 import SignupTmpl from './signup.hbs';
 import Button from '../../components/Button/Button';

@@ -36,6 +36,12 @@
         background-repeat: no-repeat;
     }
 
+    &__edit {
+        background: $main-color;
+        color: #FFFFFF;
+        width: 140px;
+    }
+
     &:hover,
     :active,
     :focus {

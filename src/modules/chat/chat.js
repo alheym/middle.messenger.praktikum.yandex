@@ -4,6 +4,7 @@ import ChatItem from '../../components/ChatItem/ChatItem';
 import Message from '../../components/Message/Message';
 import Button from '../../components/Button/Button';
 import Profile from '../../components/Profile/Profile';
+import Edit from '../../components/Edit/Edit';
 
 
 export default function Chat() {
@@ -61,7 +62,7 @@ export default function Chat() {
             name: 'Вадим',
             text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.\n' +
                 '\n' +
-            'Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
+                'Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
             img: false,
             time: '11:56',
             check: false
@@ -108,9 +109,96 @@ export default function Chat() {
     ];
 
     const profileList = profile.map((item) => {
-
         return Profile(item.id, item.profileName, item.email, item.login, item.phone, item.second_name);
 
+    }).join('');
+
+    const editEmail = [
+        {
+            title: 'Редактирование почты',
+            label: 'Почта',
+            type: 'email',
+            placeholder: 'pochta@yandex.ru',
+            classEdit: 'edit__email',
+            pass: false,
+        }
+    ],
+        editLogin = [
+            {
+                title: 'Редактирование логина',
+                label: 'Логин',
+                type: 'login',
+                placeholder: 'ivanivanov',
+                classEdit: 'edit__login',
+                pass: false,
+            },
+        ],
+        editPhone = [
+            {
+                title: 'Редактирование телефона',
+                label: 'Телефон',
+                type: 'phone',
+                placeholder: '+7(909) 967 30 30',
+                classEdit: 'edit__phone',
+                pass: false,
+            },
+        ],
+        editFirstName = [
+            {
+                title: 'Редактирование имени',
+                label: 'Имя',
+                type: 'first_name',
+                placeholder: 'Иван',
+                classEdit: 'edit__name',
+                pass: false,
+            },
+        ],
+        editSecondName = [
+            {
+                title: 'Редактирование фамилии',
+                label: 'Фамилия',
+                type: 'second_name',
+                placeholder: 'Иванов',
+                classEdit: 'edit__scName',
+                pass: false,
+            },
+        ];
+        editPass = [
+            {
+                title: 'Старый пароль',
+                label: 'Старый пароль',
+                type: 'password',
+                placeholder: '•••••••••',
+                classEdit: 'edit__password',
+                pass: true,
+                labelNewPass: 'Новый пароль',
+                labelRetPass: 'Повторите пароль',
+                placeholderNew: '•••••••••••',
+            },
+        ];
+
+    const editEmailWindow = editEmail.map((item) => {
+        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+    }).join('');
+
+    const editLoginWindow = editLogin.map((item) => {
+        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+    }).join('');
+
+    const editPhoneWindow = editPhone.map((item) => {
+        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+    }).join('');
+
+    const editFirstNameWindow = editFirstName.map((item) => {
+        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+    }).join('');
+
+    const editSecondNameWindow = editSecondName.map((item) => {
+        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass);
+    }).join('');
+
+    const editPassWindow = editPass.map((item) => {
+        return Edit(item.title, item.label, item.type, item.placeholder, item.classEdit, item.pass, item.labelNewPass, item.labelRetPass, item.placeholderNew);
     }).join('');
 
     return ChatList({
@@ -118,6 +206,12 @@ export default function Chat() {
         messageList: messageList,
         name: 'Вадим',
         profileList: profileList,
+        editEmailWindow: editEmailWindow,
+        editLoginWindow: editLoginWindow,
+        editPhoneWindow: editPhoneWindow,
+        editFirstNameWindow: editFirstNameWindow,
+        editSecondNameWindow: editSecondNameWindow,
+        editPassWindow: editPassWindow,
         btnSend: Button("", "button__send"),
         btnAdd: Button("", "button__add"),
     });

@@ -7,7 +7,7 @@ export default function ServerError() {
         error: Error(
             '500',
             'Мы уже фиксим',
-            './chatList.html',
+            '../../pages/Chat/Chat.html',
             'Назад к чатам'
         )
     });
