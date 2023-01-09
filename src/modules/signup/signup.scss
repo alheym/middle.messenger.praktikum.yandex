@@ -1,0 +1,46 @@
+@import '../../variables/font';
+
+.main {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup {
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: 340px;
+        height: 615px;
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+        border-radius: 12px;
+    }
+
+    &__form {
+        height: 100%;
+        display: flex;
+        padding: 50px 30px 30px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__title {
+        text-align: center;
+        margin: 0;
+        color: #1E1E1E;
+        cursor: default;
+    }
+
+    &_wrapper {
+        display: flex;
+        margin-bottom: 20px;
+        border: none;
+    }
+
+    &__button {
+        display: flex;
+        flex-direction: column;
+    }
+}

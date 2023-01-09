@@ -1,0 +1,30 @@
+{
+  "name": "messenger",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html src/pages/signin/signin.html src/pages/signup/signup.html src/pages/404/404.html src/pages/500/500.html src/pages/chat/chat.html src/pages/profile/profile.html src/pages/EditPass/editPass.html src/pages/editFirstName/editFirstName.html src/pages/editSecondName/editSecondName.html src/pages/editLogin/editLogin.html src/pages/editEmail/editEmail.html src/pages/editPhone/editPhone.html src/pages/editDisplayName/editDisplayName.html --no-cache", 
+    "build": "parcel build src/index.html src/pages/signin/signin.html src/pages/404/404.html src/pages/500/500.html src/pages/chat/chat.html src/pages/profile/profile.html src/pages/EditPass/editPass.html src/pages/editFirstName/editFirstName.html src/pages/editSecondName/editSecondName.html src/pages/editLogin/editLogin.html src/pages/editEmail/editEmail.html src/pages/editPhone/editPhone.html src/pages/editDisplayName/editDisplayName.html --no-cache",
+    "start": "node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alheym/middle.messenger.praktikum.yandex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alheym/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/alheym/middle.messenger.praktikum.yandex#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.2",
+    "express": "^4.18.2",
+    "handlebars": "^4.7.7",
+    "parcel": "^2.8.2",
+    "parcel-transformer-hbs": "^1.0.4",
+    "sass": "^1.57.1"
+  }
+}

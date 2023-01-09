@@ -1,0 +1,37 @@
+@import '../../variables/font';
+
+.inputBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &__label {
+        margin: 0;
+        color: #999999;
+        cursor: default;
+    }
+
+    &__input {
+        padding-bottom: 3px;
+        border: none;
+        border-bottom: 1px solid #BDB0CC;
+        color: #1E1E1E;
+
+        &::placeholder {
+            color: #999999;
+        }
+
+        &:focus,
+        :active,
+        :focus-visible {
+            outline: none;
+            background-color: transparent !important;
+        }
+    }
+
+    &__message {
+        margin: 0;
+        color: #FF2F2F;
+        cursor: default;
+    }
+}
