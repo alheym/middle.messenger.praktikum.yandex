@@ -1,7 +1,19 @@
+@import './variables/variables';
+
 .main__container {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     color: #1B0835;
+}
+
+.nav__menu {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.menu__link {
+    text-decoration: none;
 }
