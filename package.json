@@ -4,8 +4,8 @@
   "description": "---",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/index.html src/pages/signin/signin.html src/pages/signup/signup.html src/pages/404/404.html src/pages/500/500.html src/pages/chat/chat.html src/pages/profile/profile.html src/pages/EditPass/editPass.html src/pages/editFirstName/editFirstName.html src/pages/editSecondName/editSecondName.html src/pages/editLogin/editLogin.html src/pages/editEmail/editEmail.html src/pages/editPhone/editPhone.html src/pages/editDisplayName/editDisplayName.html --no-cache", 
-    "build": "parcel build src/index.html src/pages/signin/signin.html src/pages/404/404.html src/pages/500/500.html src/pages/chat/chat.html src/pages/profile/profile.html src/pages/EditPass/editPass.html src/pages/editFirstName/editFirstName.html src/pages/editSecondName/editSecondName.html src/pages/editLogin/editLogin.html src/pages/editEmail/editEmail.html src/pages/editPhone/editPhone.html src/pages/editDisplayName/editDisplayName.html --no-cache",
+    "dev": "parcel ./src/index.html --no-cache",
+    "build": "parcel ./src/index.html --no-cache",
     "start": "node ./server.js"
   },
   "repository": {
@@ -20,11 +20,25 @@
   },
   "homepage": "https://github.com/alheym/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
+    "@anikin/parcel-transformer-handlebars": "^1.0.9",
     "@parcel/transformer-sass": "^2.8.2",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb": "^19.0.4",
     "express": "^4.18.2",
     "handlebars": "^4.7.7",
+    "nanoid": "^4.0.0",
     "parcel": "^2.8.2",
     "parcel-transformer-hbs": "^1.0.4",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+	"dependencies": {
+    "handlebars": "4.7.7",
+    "nanoid": "^4.0.0"
   }
 }
