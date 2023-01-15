@@ -1,0 +1,12 @@
+{
+    "extends": "stylelint-config-standard-scss",
+    "rules": {
+        "color-hex-case": "lower",
+        "scss/dollar-variable-pattern": null
+    },
+    "ignoreFiles": [
+        "build/*",
+        ".cache/*",
+        "dist/*"
+    ]
+}
