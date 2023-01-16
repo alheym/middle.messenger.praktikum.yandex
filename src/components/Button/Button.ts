@@ -6,7 +6,7 @@ import template from './Button.tmpl.hbs';
 interface IButton {
 	type?: string;
 	className: string;
-	text: string;
+	text?: string;
 	events: {
 	  click: (e: Event) => void;
 	};
