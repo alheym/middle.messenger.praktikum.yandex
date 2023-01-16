@@ -99,14 +99,7 @@ export class Signup extends Block {
 						removeError(e.target.name)
 					}
 				},
-				focusin: (e: { target: HTMLInputElement; }) => {
-					const pass = document.querySelector('input[name=password]') as HTMLInputElement;
-					if (pass.value !== (e.target as HTMLInputElement).value) {
-						setErrorMes(e.target.name, 'Пароли не совпадают')
-					} else {
-						removeError(e.target.name)
-					}
-				},
+				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
 			},
 		});
 
@@ -117,7 +110,6 @@ export class Signup extends Block {
 			events: {
 				click: (e: Event) => {
 					e.preventDefault();
-					// this.formSubmit(e);
 					validForm('.form')
 				}
 			},
