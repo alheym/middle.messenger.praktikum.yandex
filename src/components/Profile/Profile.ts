@@ -1,6 +1,6 @@
 import './_profile.scss';
 import ProfileTmpl from './Profile.hbs';
-import Button from '../../components/Button/Button';
+import Button from '../Button/Button';
 
 export default function (id, first_name, email, login, phone, second_name, display_name) {
 
