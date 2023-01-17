@@ -1,10 +1,23 @@
-import NotFound from '../../modules/404/404';
+import template from './404.hbs';
+import Block from '../../utils/Block';
+import { Error } from '../../components/Error/Error';
 
-const notFound = () => {
 
-    const component = NotFound();
+export class NotFound extends Block {
+	constructor() {
+		super('NotFound');
+	}
 
-    return component;
-};
+	init() {
+		this.children.error = new Error ({
+			title: '404',
+			subtitle: 'Не туда попали',
+			link: '/chat',
+			linkText: 'Назад к чатам',
+		});
+	}
 
-document.querySelector('#root').innerHTML = notFound();
+	render() {
+		return this.compile(template, { ...this.props });
+	}
+}
