@@ -6,13 +6,17 @@
     font-weight: 400;
     font-size: 20px;
     color: #1B0835;
+	caret-color: transparent;
 }
 
 .nav__menu {
-	margin-bottom: 15px;
+	z-index: 10;
+	position: fixed;
+	padding-bottom: 15px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
+	caret-color: transparent;
 }
 
 .menu__link {

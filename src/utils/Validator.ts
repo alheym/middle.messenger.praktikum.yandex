@@ -31,6 +31,10 @@ const validationRules: Record<string, { reg: RegExp, error: string }> = {
 		reg: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,40}$/,
 		error: "Неверный пароль"
 	},
+	passwordNew: {
+		reg: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,40}$/,
+		error: "Неверный пароль"
+	},
 	messages: {
 		reg: /^\s*$/,
 		error: "не должно быть пустым"

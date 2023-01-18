@@ -1,13 +1,14 @@
-import './_inputText.scss';
-import template from './InputText.hbs';
+import './_inputEdit.scss';
+import template from './InputEdit.hbs';
 import Block from '../../utils/Block';
 
 
-interface IInputText {
+interface IInputEdit {
 	type?: string;
 	name: string;
-	label?: string;
+	label: string;
 	placeholder: string;
+	property?: string;
 	classLabel?: string;
 	classInput?: string;
 	events?: {
@@ -16,9 +17,9 @@ interface IInputText {
 	  }
 }
 
-export class InputText extends Block<IInputText> {
-	constructor(props: IInputText) {
-		super({type: 'InputText', ...props});
+export class InputEdit extends Block<IInputEdit> {
+	constructor(props: IInputEdit) {
+		super({type: 'inputEdit', ...props});
 	}
 
 	render() {

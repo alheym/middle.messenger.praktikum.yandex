@@ -1,0 +1,12 @@
+.edit {
+	&__btn {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__error {
+		margin: 0;
+        color: #FF2F2F;
+        cursor: default;
+	}
+}
