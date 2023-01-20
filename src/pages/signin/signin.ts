@@ -3,7 +3,7 @@ import template from './signin.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
 import { InputText } from '../../components/InputText/InputText';
-import { validate, validForm } from '../../utils/Validator';
+import { validate, validForm, VALIDATION_EVENTS } from '../../utils/Validator';
 
 
 export class Signin extends Block {
@@ -18,10 +18,7 @@ export class Signin extends Block {
 			type: 'text',
 			placeholder: 'Логин',
 			classLabel: 'fs fs-9 fw',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			  },
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputPass = new InputText({
@@ -30,10 +27,7 @@ export class Signin extends Block {
 			type: 'password',
 			placeholder: 'Пароль',
 			classLabel: 'fs fs-9 fw',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			  },
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.btnPrimary = new Button({

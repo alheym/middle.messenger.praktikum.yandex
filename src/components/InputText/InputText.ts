@@ -10,10 +10,7 @@ interface IInputText {
 	placeholder: string;
 	classLabel?: string;
 	classInput?: string;
-	events?: {
-		focusin?: (e: { target: HTMLInputElement; }) => void;
-		focusout?: (e: { target: HTMLInputElement; }) => void;
-	  }
+	events?: {};
 }
 
 export class InputText extends Block<IInputText> {

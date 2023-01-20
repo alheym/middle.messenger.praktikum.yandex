@@ -11,10 +11,7 @@ interface IInputEdit {
 	property?: string;
 	classLabel?: string;
 	classInput?: string;
-	events?: {
-		focusin?: (e: { target: HTMLInputElement; }) => void;
-		focusout?: (e: { target: HTMLInputElement; }) => void;
-	  }
+	events?: { }
 }
 
 export class InputEdit extends Block<IInputEdit> {

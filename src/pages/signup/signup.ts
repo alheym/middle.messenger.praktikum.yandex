@@ -3,7 +3,7 @@ import template from './signup.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
 import { InputText } from '../../components/InputText/InputText';
-import { validate, setErrorMes, removeError, validForm } from '../../utils/Validator';
+import { validate, setErrorMes, removeError, validForm, VALIDATION_EVENTS } from '../../utils/Validator';
 
 
 export class Signup extends Block {
@@ -18,10 +18,7 @@ export class Signup extends Block {
 			type: 'email',
 			placeholder: 'Почта',
 			classLabel: 'fs fs-9 fw',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputLogin = new InputText({
@@ -30,10 +27,7 @@ export class Signup extends Block {
 			type: 'text',
 			placeholder: 'Логин',
 			classLabel: 'fs fs-9 fw',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputName = new InputText({
@@ -42,10 +36,7 @@ export class Signup extends Block {
 			type: 'text',
 			placeholder: 'Имя',
 			classLabel: 'fs fs-9 fw',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputSecName = new InputText({
@@ -54,10 +45,7 @@ export class Signup extends Block {
 			type: 'text',
 			placeholder: 'Фамилия',
 			classLabel: 'fs fs-9 fw',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputPhone = new InputText({
@@ -66,10 +54,7 @@ export class Signup extends Block {
 			type: 'phone',
 			placeholder: 'Телефон',
 			classLabel: 'fs fs-9 fw',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputPass = new InputText({
@@ -78,10 +63,7 @@ export class Signup extends Block {
 			type: 'password',
 			placeholder: 'Пароль',
 			classLabel: 'fs fs-9 fw',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputPassRet = new InputText({
@@ -99,7 +81,7 @@ export class Signup extends Block {
 						removeError(e.target.name)
 					}
 				},
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+				focusin: (e: { target: HTMLInputElement; }) => validate,
 			},
 		});
 

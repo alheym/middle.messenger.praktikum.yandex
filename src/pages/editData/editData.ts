@@ -2,7 +2,7 @@ import './editData.scss';
 import template from './editData.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
-import { validate, validForm } from '../../utils/Validator';
+import { validForm, VALIDATION_EVENTS } from '../../utils/Validator';
 import { ProfileAvatar } from '../../components/ProfileAvatar/ProfileAvatar';
 import { InputEdit } from '../../components/InputEdit/InputEdit';
 
@@ -23,10 +23,7 @@ export class EditData extends Block {
 			name: 'email',
 			type: 'email',
 			placeholder: 'pochta@yandex.ru',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputLogin = new InputEdit({
@@ -34,10 +31,7 @@ export class EditData extends Block {
 			name: 'login',
 			type: 'login',
 			placeholder: 'ivanivanov',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputPhone = new InputEdit({
@@ -45,10 +39,7 @@ export class EditData extends Block {
 			name: 'phone',
 			type: 'phone',
 			placeholder: '+7(909) 967 30 30',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputDisplayName = new InputEdit({
@@ -56,10 +47,7 @@ export class EditData extends Block {
 			name: 'display_name',
 			type: 'text',
 			placeholder: 'Иван',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputFirstName = new InputEdit({
@@ -67,10 +55,7 @@ export class EditData extends Block {
 			name: 'first_name',
 			type: 'text',
 			placeholder: 'Иван',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.inputSecondName = new InputEdit({
@@ -78,10 +63,7 @@ export class EditData extends Block {
 			name: 'second_name',
 			type: 'text',
 			placeholder: 'Иванов',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.btnSave = new Button({

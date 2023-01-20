@@ -21,7 +21,7 @@ function queryStringify(data: string): string {
 	return `?${Object.entries(data).map(pair => pair.join('=')).join('&')}`
 }
 
-class HTTPTransport {
+export class HTTPTransport {
 	get = (url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> => {
 		const newUrl = url + '' + queryStringify(options.data)
 		return this.request(newUrl, { ...options, method: METHOD.GET }, options.timeout);

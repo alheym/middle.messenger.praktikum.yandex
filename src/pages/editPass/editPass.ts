@@ -2,7 +2,7 @@ import './editPass.scss';
 import template from './editPass.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
-import { validate, validForm, setErrorMes, removeError } from '../../utils/Validator';
+import { validate, validForm, setErrorMes, removeError, VALIDATION_EVENTS } from '../../utils/Validator';
 import { ProfileAvatar } from '../../components/ProfileAvatar/ProfileAvatar';
 import { InputEdit } from '../../components/InputEdit/InputEdit';
 
@@ -22,10 +22,7 @@ export class EditPass extends Block {
 			name: 'password',
 			type: 'password',
 			placeholder: '•••••••••',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.passwordNew = new InputEdit({
@@ -33,10 +30,7 @@ export class EditPass extends Block {
 			name: 'passwordNew',
 			type: 'password',
 			placeholder: '•••••••••••',
-			events: {
-				focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-			},
+			events: VALIDATION_EVENTS,
 		});
 
 		this.children.passwordRet = new InputEdit({
@@ -53,7 +47,7 @@ export class EditPass extends Block {
 						removeError(e.target.name)
 					}
 				},
-				focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+				focusin: (e: { target: HTMLInputElement; }) => validate,
 			},
 		});
 

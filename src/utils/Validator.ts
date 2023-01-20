@@ -41,17 +41,37 @@ const validationRules: Record<string, { reg: RegExp, error: string }> = {
 	}
 };
 
-export function validate(nameInput: string, valueInput: string) {
-	const pattern = validationRules[nameInput].reg
+export function validate(e: Event) {
+	const input = e.target as HTMLInputElement;
+	const name = input.name;
+	const value = input.value;
+	const pattern = validationRules[name].reg;
 	const regExp = new RegExp(pattern);
-	const isValid = regExp.test(String(valueInput))
+	const isValid = regExp.test(String(value))
 	if (!isValid) {
-		setErrorMes(nameInput, validationRules[nameInput].error);
+		setErrorMes(name, validationRules[name].error);
 	} else {
-		removeError(nameInput);
+		removeError(name);
 		removeError('form')
 	}
 }
+
+export const VALIDATION_EVENTS = {
+	focusout: validate,
+	focusin: validate,
+  }
+
+// export function validate(nameInput: string, valueInput: string) {
+// 	const pattern = validationRules[nameInput].reg
+// 	const regExp = new RegExp(pattern);
+// 	const isValid = regExp.test(String(valueInput))
+// 	if (!isValid) {
+// 		setErrorMes(nameInput, validationRules[nameInput].error);
+// 	} else {
+// 		removeError(nameInput);
+// 		removeError('form')
+// 	}
+// }
 
 export function setErrorMes(name: string, error: string) {
 	let span = document.getElementById('error_' + name);
