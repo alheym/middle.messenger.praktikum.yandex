@@ -16,8 +16,6 @@
 - Stylelint
 - ESLint
 
-
-
 ## Установка
 
 - `npm run dev`
