@@ -28,8 +28,8 @@ export class AuthController {
 		try {
 			await this._api.signup(data);
 			await this.fetchUser();
-			setTimeout(() => location.reload(), 500);
-			router.go('/profile');
+			// setTimeout(() => location.reload(), 500);
+			// router.go('/profile');
 
 		} catch (e: any) {
 			console.error(e.message);
