@@ -36,5 +36,5 @@
 
 [Sprint 2](https://github.com/alheym/middle.messenger.praktikum.yandex/pull/5)
 
-[Sprint 2](https://github.com/alheym/middle.messenger.praktikum.yandex/pull/6)
+[Sprint 3](https://github.com/alheym/middle.messenger.praktikum.yandex/pull/6)
 
