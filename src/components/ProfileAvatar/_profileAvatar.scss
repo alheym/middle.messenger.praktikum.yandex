@@ -1,0 +1,53 @@
+@import '../../variables/variables';
+@import '../../variables/font';
+
+
+.profile {
+
+    &__menu {
+
+        &-profile {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 30px;
+
+            &-avatar {
+                height: 110px;
+                width: 110px;
+                border-radius: 50%;
+                background: #EFEFEF;
+                background-image: url('../../image/profile.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                margin-right: 12px;
+                cursor: pointer;
+                z-index: 2;
+
+                &::before {
+                    height: 110px;
+                    width: 110px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    text-align: center;
+                    content: 'Поменять аватар';
+                    background: #000000;
+                    opacity: 0;
+                    border-radius: 50%;
+                    transition: all .6s;
+                }
+
+                &:hover:before {
+                    opacity: 0.5;
+                }
+            }
+
+			&-title {
+				caret-color: transparent;
+				cursor: default;
+			}
+        }
+	}
+}

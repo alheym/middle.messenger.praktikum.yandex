@@ -1,0 +1,217 @@
+html,
+body {
+    height: 100vh;
+    overflow-y: hidden;
+    margin-bottom: 5px;
+}
+
+.chat {
+    margin-top: 35px;
+    height: 95vh;
+    display: flex;
+
+    &__edit {
+        width: 340px;
+        height: 257px;
+    }
+
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #EAEAEA;
+        z-index: 1;
+    }
+
+    &__hamburger {
+        top: 24px;
+        left: 8px;
+        height: 15px;
+        margin-top: 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        cursor: pointer;
+        padding: 5px;
+
+        span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: #EFEFEF;
+        }
+
+        &:hover,
+        :active,
+        :focus {
+            opacity: 70%;
+        }
+    }
+
+    &__search {
+        display: flex;
+        margin-bottom: 10px;
+
+        &-input {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            width: 256px;
+            height: 32px;
+            text-align: center;
+            background: #EFEFEF;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background-image: url('../../image/search.svg');
+            background-repeat: no-repeat;
+            background-position-x: 35%;
+            background-position-y: 50%;
+        }
+    }
+
+    &__list {
+        width: 310px;
+    }
+}
+
+.message {
+
+    &__main {
+        display: grid;
+        grid-template-rows: 54px 1fr 54px;
+        flex-grow: 1;
+        padding: 0 20px;
+    }
+
+    &__info {
+        margin-bottom: 11px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #EAEAEA;
+    }
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+
+        &-avatar {
+            height: 34px;
+            width: 34px;
+            border-radius: 50px;
+            background: #EFEFEF;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            cursor: default;
+        }
+
+        &-name {
+            padding-bottom: 8px;
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 13px;
+            color: #1E1E1E;
+            margin: 0;
+            cursor: default;
+        }
+    }
+
+    &__setting {
+        margin: 13px 0 auto;
+        height: 15px;
+        width: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        cursor: pointer;
+
+        span {
+            display: block;
+            height: 3px;
+            width: 3px;
+            border-radius: 50%;
+            background: #1E1E1E
+        }
+
+        &:hover,
+        :active,
+        :focus {
+            opacity: 70%;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    &__time {
+        padding: 138px 0 30px;
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        color: #999999;
+        margin: 0;
+        cursor: default;
+    }
+
+    &__input {
+        display: flex;
+        height: 43px;
+        justify-content: space-between;
+        border-top: 1px solid #EAEAEA;
+        padding-top: 11px;
+
+        &-add {
+            margin-right: 10px;
+            width: 32px;
+            height: 32px;
+            background-color: white;
+            border: none;
+            background-image: url('../../image/add.svg');
+            cursor: pointer;
+
+            &:hover,
+            :active,
+            :focus {
+                opacity: 70%;
+            }
+        }
+
+        &-input {
+            height: 12px;
+            flex-grow: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            background: #EFEFEF;
+            border: none;
+            outline: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+        }
+
+        &-btn {
+            margin-left: 10px;
+            width: 32px;
+            height: 32px;
+            background-color: white;
+            border: none;
+            background-image: url('../../image/btn.svg');
+            background-repeat: no-repeat;
+            cursor: pointer;
+
+            &:hover,
+            :active,
+            :focus {
+                opacity: 70%;
+            }
+        }
+    }
+}

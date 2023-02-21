@@ -1,0 +1,33 @@
+<div class="profile__menu">
+
+	<div class="profile__menu-profile">
+		<label for="avatar" class="profile__menu-profile-avatar fs fs-11">
+			<input id="avatar" type="file" name="avatar" hidden />
+		</label>
+		<p class="profile__menu-profile-title fs fs-20 fw">{{display_name}}</p>
+	</div>
+
+
+	<ul class="profile__menu-info">
+
+		<div class="profile__menu-item">
+			<p class="profile__menu-label fs fs-13">Старый пароль</p>
+			<input name="password" type="password" placeholder="{{password}}" class="profile__menu-input fs fs-13" />
+
+		</div> <span class="inputBlock__message fs fs-8" id="error_password"></span>
+
+		<div class="profile__menu-item">
+			<p class="profile__menu-label fs fs-13">Новый пароль</p>
+			<input name="passwordNew" type="password" placeholder="•••••••••" class="profile__menu-input fs fs-13" />
+
+		</div> <span class="inputBlock__message fs fs-8" id="error_passwordNew"></span>
+
+		<div class="profile__menu-item">
+			<p class="profile__menu-label fs fs-13">Повторите новый пароль</p>
+			<input name="passwordRet" type="password" placeholder="•••••••••" class="profile__menu-input fs fs-13" />
+
+		</div> <span class="inputBlock__message fs fs-8" id="error_passwordRet"></span>
+
+	</ul>
+
+</div>

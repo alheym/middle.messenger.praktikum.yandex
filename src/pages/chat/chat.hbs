@@ -1,0 +1,66 @@
+{{!-- <div class="chat__menu">
+	{{{profileList}}}
+</div>
+
+{{{editEmailWindow}}}
+
+{{{editLoginWindow}}}
+
+{{{editPhoneWindow}}}
+
+{{{editFirstNameWindow}}}
+
+{{{editSecondNameWindow}}}
+
+{{{editPassWindow}}} --}}
+
+
+<main class="chat">
+
+	<section id="chat" class="chat__main">
+		<div class="chat__search">
+			<a href="/profile">
+			<div class="chat__hamburger">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			</a>
+			<input type="search" class="chat__search-input" placeholder="Поиск" />
+		</div>
+
+		<div class="chat__list">
+			{{{chatItem1}}}
+			{{{chatItem2}}}
+			{{{chatItem3}}}
+			{{{chatItem4}}}
+			{{{chatItem5}}}
+		</div>
+	</section>
+
+	<section class="message__main">
+		<div class="message__info">
+			<div class="message__wrap">
+				<div class="message__wrap-avatar"></div>
+				<div class="message__wrap-name">Вадим</div>
+			</div>
+			<div class="message__setting">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="message__list">
+			<div class="message__time">19 июня</div>
+			{{{message}}}
+			{{{message1}}}
+			{{{message2}}}
+		</div>
+		<div class="message__input">
+			{{{btnAdd}}}
+			<input class="message__input-input" required placeholder="Сообщение" />
+			{{{btnSend}}}
+		</div>
+	</section>
+
+</main>
