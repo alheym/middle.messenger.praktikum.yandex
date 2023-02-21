@@ -1,44 +1,65 @@
 import './index.scss';
 import { Signin } from './pages/signin/signin';
 import { Signup } from './pages/signup/signup';
-import { Chat } from './pages/chat/chat';
+import { Chats } from './pages/chat/chat';
 import { NotFound } from './pages/404/404';
 import { ServerError } from './pages/500/500';
-import { Profile } from './pages/profile/profile';
-import { EditData } from './pages/editData/editData';
-import { EditPass } from './pages/editPass/editPass';
+import { ProfileData } from './pages/profile/profile';
+import { EditsData } from './pages/editData/editData';
+import { EditsPass } from './pages/editPass/editPass';
+import Router from './utils/Router';
+import AuthController from './controllers/AuthController';
+import ChatController from './controllers/ChatController';
 
 
-window.addEventListener('DOMContentLoaded', () => {
-	const root = document.querySelector('#app');
-	if (window.location.pathname === '/signup') {
-		const signup = new Signup();
-		root!.append(signup.getContent() as HTMLElement);
-	} else if (window.location.pathname === '/500') {
-		const error500 = new ServerError();
-		root!.append(error500.getContent() as HTMLElement);
-	} else if (window.location.pathname === '/404') {
-		const error404 = new NotFound();
-		root!.append(error404.getContent() as HTMLElement);
+
+export enum ROUTES {
+	Home = '/',
+	Signup = '/sign-up',
+	Profile = '/profile',
+	Chats = '/messenger',
+	NotFound = '/404',
+	ServerError = '/500',
+	EditData = '/settings',
+	EditPass = '/editPass',
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+	Router
+		.use(ROUTES.Home, Signin)
+		.use(ROUTES.Signup, Signup)
+		.use(ROUTES.Chats, Chats)
+		.use(ROUTES.Profile, ProfileData)
+		.use(ROUTES.EditData, EditsData)
+		.use(ROUTES.EditPass, EditsPass)
+		.use(ROUTES.NotFound, NotFound)
+		.use(ROUTES.ServerError, ServerError)
+
+	let isProtectedRoute = true;
+
+	switch (window.location.pathname) {
+		case ROUTES.Home:
+		case ROUTES.Signup:
+			isProtectedRoute = false;
+			break;
 	}
-	else if (window.location.pathname === '/profile') {
-		const profile = new Profile();
-		root!.append(profile.getContent() as HTMLElement);
+
+	try {
+		await AuthController.fetchUser();
+		await ChatController.getChats();
+
+		Router.start();
+
+		if (!isProtectedRoute) {
+			Router.go(ROUTES.Chats);
+		}
 	}
-	else if (window.location.pathname === '/editData') {
-		const editData = new EditData();
-		root!.append(editData.getContent() as HTMLElement);
-	}
-	else if (window.location.pathname === '/editPass') {
-		const editPass = new EditPass();
-		root!.append(editPass.getContent() as HTMLElement);
-	}
-	else if (window.location.pathname === '/chat') {
-		const chat = new Chat();
-		root!.append(chat.getContent() as HTMLElement);
-	}
-	else {
-		const signin = new Signin();
-		root!.append(signin.getContent() as HTMLElement);
+	catch (e) {
+		Router.start();
+
+		if (isProtectedRoute) {
+			Router.go(ROUTES.Home);
+		}
 	}
 })
+

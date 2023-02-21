@@ -7,19 +7,20 @@ interface IInputEdit {
 	type?: string;
 	name: string;
 	label: string;
-	placeholder: string;
+	placeholder: string | undefined;
 	property?: string;
 	classLabel?: string;
 	classInput?: string;
-	events?: { }
+	value?: string;
+	events?: {}
 }
 
 export class InputEdit extends Block<IInputEdit> {
 	constructor(props: IInputEdit) {
-		super({type: 'inputEdit', ...props});
+		super({ type: 'inputEdit', ...props });
 	}
 
 	render() {
 		return this.compile(template, { ...this.props });
-	  }
+	}
 }

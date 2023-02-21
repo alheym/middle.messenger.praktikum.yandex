@@ -2,24 +2,30 @@ import './editPass.scss';
 import template from './editPass.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
-import { validate, validForm, setErrorMes, removeError, VALIDATION_EVENTS } from '../../utils/Validator';
-import { ProfileAvatar } from '../../components/ProfileAvatar/ProfileAvatar';
+import { validate, validForm, isValidForm, setErrorMes, removeError, VALIDATION_EVENTS } from '../../utils/Validator';
 import { InputEdit } from '../../components/InputEdit/InputEdit';
+import { Avatar } from '../../components/Avatar/Avatar';
+import { withStore } from '../../utils/Store';
+import UserController from '../../controllers/UserController';
 
+export type EditPassword = {
+	oldPassword: string;
+	newPassword: string;
+}
 
 export class EditPass extends Block {
-	constructor() {
-		super('EditPass');
-	}
 
-	init() {
-		this.children.profileAvatar = new ProfileAvatar({
-			display_name: 'Иван',
+	protected initChildren() {
+
+		this.children.avatar = new Avatar({
+			display_name: this.props.display_name,
+			value: `https://ya-praktikum.tech/api/v2/resources/${this.props.avatar}`,
+
 		});
 
 		this.children.password = new InputEdit({
 			label: 'Старый пароль',
-			name: 'password',
+			name: 'oldPassword',
 			type: 'password',
 			placeholder: '•••••••••',
 			events: VALIDATION_EVENTS,
@@ -27,7 +33,7 @@ export class EditPass extends Block {
 
 		this.children.passwordNew = new InputEdit({
 			label: 'Новый пароль',
-			name: 'passwordNew',
+			name: 'newPassword',
 			type: 'password',
 			placeholder: '•••••••••••',
 			events: VALIDATION_EVENTS,
@@ -35,12 +41,12 @@ export class EditPass extends Block {
 
 		this.children.passwordRet = new InputEdit({
 			label: 'Повторите пароль',
-			name: 'passwordRet',
+			name: 'newPassword2',
 			type: 'password',
 			placeholder: '•••••••••••',
 			events: {
 				focusout: (e: { target: HTMLInputElement; }) => {
-					const pass = document.querySelector('input[name=passwordNew]') as HTMLInputElement;
+					const pass = document.querySelector('input[name=newPassword]') as HTMLInputElement;
 					if (pass.value !== (e.target as HTMLInputElement).value) {
 						setErrorMes(e.target.name, 'Пароли не совпадают')
 					} else {
@@ -58,13 +64,24 @@ export class EditPass extends Block {
 			events: {
 				click: (e: Event) => {
 					e.preventDefault();
-					validForm('.form');
+					if (isValidForm('.form')) {
+						this.onSubmit();
+					}
 				}
 			},
 		});
+	}
+
+	onSubmit() {
+		const data = validForm('.form');
+		UserController.editPass(data as EditPassword);
 	}
 
 	render() {
 		return this.compile(template, { ...this.props });
 	}
 }
+
+const withUser = withStore((state) => ({ ...state.user }));
+
+export const EditsPass = withUser(EditPass);

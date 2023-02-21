@@ -7,6 +7,7 @@ interface IPassInfo {
 	type?: string,
 	display_name: string,
 	password: string,
+	name: string,
 	events?: {
 		focusin?: (e: { target: HTMLInputElement; }) => void;
 		focusout?: (e: { target: HTMLInputElement; }) => void;

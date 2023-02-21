@@ -14,7 +14,7 @@ export class NotFound extends Block {
 		this.children.error = new Error ({
 			title: '404',
 			subtitle: 'Не туда попали',
-			link: '/chat',
+			link: '/messenger',
 			linkText: 'Назад к чатам',
 		});
 	}

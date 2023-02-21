@@ -1,0 +1,91 @@
+<section class="modal">
+	<div class="modal__container active">
+
+		<form>
+			<div class="modal__title">
+
+				<h3 class="modal__form-title fs fs13">Добавить участников</h3>
+				<button data-close="{{ this.id }}" type="{{type}}" class="button {{className}} button__close">✖</button>
+			</div>
+
+
+			<div class="modal__form-items">
+				<div class="form__item">
+
+					{{{searchInput}}}
+
+				</div>
+				<div class="form__item">
+					<ul class="users__list">
+						{{#if searching}}
+						{{#if users}}
+						{{#each users}}
+						<li class="users__list-item user-item">
+							<div class="photo-input photo-input-avatar">
+								<img class="photo-input__image"
+									src="{{#if this.avatar}}https://ya-praktikum.tech/api/v2/resources{{/if}}{{ this.avatar }}"
+									onerror="this.style.display = 'none'" alt="{{ this.login }} avatar">
+							</div>
+							<div class="user__item-info">
+								<p class="user__item-name fs fs13">{{ this.first_name }} {{ this.second_name }}</p>
+								<span class="user__item-login fs fs11">@{{ this.login }}</span>
+							</div>
+							{{#if this.isMember }}
+							{{#if ../isAdmin}}
+							<button data-expel="{{ this.id }}"
+								class="button button__red user-item__expel">Исключить</button>
+							{{/if}}
+							{{else}}
+							<button data-invite="{{ this.id }}"
+								class="button button__primary btn_base user-item__invite">Добавить</button>
+							{{/if}}
+							<button data-delete="{{ this.id }}"
+								class="button button__red user-item__expel">Исключить</button>
+						</li>
+						{{/each}}
+						{{else}}
+						<li class="users__list-item user-item">
+							<div class="user__item-avatar avatar"></div>
+							<div class="user__item-info">
+								<p class="user__item-name fs fs9">Поиск не дал результатов</p>
+								<span class="user__item-login fs fs9">Попробуйте еще раз</span>
+							</div>
+						</li>
+						{{/if}}
+						{{else}}
+						{{#if users}}
+						{{#each users}}
+						<li class="users__list-item user-item">
+							<div class="photo-input photo-input-avatar">
+								<img class="photo-input__image"
+									src="{{#if this.avatar}}https://ya-praktikum.tech/api/v2/resources{{/if}}{{ this.avatar }}"
+									onerror="this.style.display = 'none'" alt="{{ this.login }} avatar">
+							</div>
+							<div class="user__item-info">
+								<p class="user__item-name fs fs13">{{ this.first_name }} {{ this.second_name }}</p>
+								<span class="user__item-login fs fs11">{{ this.role }} @{{ this.login }}</span>
+							</div>
+							{{#unless this.isAdmin }}
+							<button data-delete="{{ this.id }}"
+								class="button button__red user-item__invite">Исключить</button>
+							{{/unless}}
+						</li>
+						{{/each}}
+						{{else}}
+						<li class="users__list-item user-item">
+							<div class="user__item-avatar avatar"></div>
+							<div class="user__item-info">
+
+								<span class="user__item-login fs fs8">Начните вводить логин пользователя</span>
+							</div>
+						</li>
+						<button data-chatInfo="{{ this.id }}" class="button user-item">Показать список
+							участников</button>
+						{{/if}}
+						{{/if}}
+					</ul>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>

@@ -1,9 +1,8 @@
-import './_inputText.scss';
-import template from './InputText.hbs';
+import template from './InputSearch.hbs';
 import Block from '../../utils/Block';
 
 
-interface IInputText {
+interface IInputSearch {
 	type?: string;
 	name: string;
 	label?: string;
@@ -14,9 +13,13 @@ interface IInputText {
 	events?: {};
 }
 
-export class InputText extends Block<IInputText> {
-	constructor(props: IInputText) {
+export class InputSearch extends Block<IInputSearch> {
+	constructor(props: IInputSearch) {
 		super({type: 'InputText', ...props});
+	}
+
+	clear() {
+		this.setProps({ value: '' });
 	}
 
 	render() {

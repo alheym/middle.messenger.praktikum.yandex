@@ -3,7 +3,9 @@ import template from './signin.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
 import { InputText } from '../../components/InputText/InputText';
-import { validate, validForm, VALIDATION_EVENTS } from '../../utils/Validator';
+import { validForm, isValidForm, VALIDATION_EVENTS } from '../../utils/Validator';
+import { SigninData } from '../../api/AuthAPI';
+import AuthController from '../../controllers/AuthController';
 
 
 export class Signin extends Block {
@@ -37,7 +39,9 @@ export class Signin extends Block {
 			events: {
 				click: (e: Event) => {
 					e.preventDefault();
-					validForm('.form');
+					if (isValidForm('.form')) {
+						this.onSubmit();
+					}
 				}
 			},
 		});
@@ -46,9 +50,14 @@ export class Signin extends Block {
 			text: 'Нет аккаунта?',
 			className: 'button__link fs fs-11',
 			events: {
-				click: () => { window.location.href = '/signup' }
+				click: () => { window.location.href = '/sign-up' }
 			},
 		});
+	}
+
+	onSubmit() {
+		const data: any = validForm('.form');
+		AuthController.signin(data as SigninData);
 	}
 
 	render() {

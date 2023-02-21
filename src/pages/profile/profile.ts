@@ -2,35 +2,36 @@ import './profile.scss';
 import template from './profile.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
-import { ProfileAvatar } from '../../components/ProfileAvatar/ProfileAvatar';
+import { Avatar } from '../../components/Avatar/Avatar';
 import { InputEdit } from '../../components/InputEdit/InputEdit';
+import { withStore } from '../../utils/Store';
+import AuthController from '../../controllers/AuthController';
 
 
 export class Profile extends Block {
-	constructor() {
-		super('Profile');
-	}
 
-	init() {
-		this.children.profileAvatar = new ProfileAvatar({
-			display_name: 'Иван',
+	protected initChildren() {
+
+		this.children.avatar = new Avatar({
+			display_name: this.props.display_name,
+			value: `https://ya-praktikum.tech/api/v2/resources/${this.props.avatar}`,
+
 		});
 
 		this.children.inputEmail = new InputEdit({
 			label: 'Почта',
 			name: 'email',
 			type: 'email',
-			placeholder: 'pochta@yandex.ru',
+			placeholder: this.props.email,
 			property: 'readonly',
 			classInput: 'readonly'
-
 		});
 
 		this.children.inputLogin = new InputEdit({
 			label: 'Логин',
 			name: 'login',
 			type: 'login',
-			placeholder: 'ivanivanov',
+			placeholder: this.props.login,
 			property: 'readonly',
 			classInput: 'readonly'
 
@@ -40,7 +41,7 @@ export class Profile extends Block {
 			label: 'Телефон',
 			name: 'phone',
 			type: 'phone',
-			placeholder: '+7(909) 967 30 30',
+			placeholder: this.props.phone,
 			property: 'readonly',
 			classInput: 'readonly'
 
@@ -50,7 +51,7 @@ export class Profile extends Block {
 			label: 'Имя в чате',
 			name: 'display_name',
 			type: 'text',
-			placeholder: 'Иван',
+			placeholder: this.props.display_name,
 			property: 'readonly',
 			classInput: 'readonly'
 
@@ -60,7 +61,7 @@ export class Profile extends Block {
 			label: 'Имя',
 			name: 'first_name',
 			type: 'text',
-			placeholder: 'Иван',
+			placeholder: this.props.first_name,
 			property: 'readonly',
 			classInput: 'readonly'
 
@@ -70,7 +71,7 @@ export class Profile extends Block {
 			label: 'Фамилия',
 			name: 'second_name',
 			type: 'text',
-			placeholder: 'Иванов',
+			placeholder: this.props.second_name,
 			property: 'readonly',
 			classInput: 'readonly'
 
@@ -93,7 +94,7 @@ export class Profile extends Block {
 			events: {
 				click: (e: Event) => {
 					e.preventDefault();
-					document.location = '/editData';
+					document.location = '/settings';
 				}
 			},
 		});
@@ -104,15 +105,17 @@ export class Profile extends Block {
 			events: {
 				click: (e: Event) => {
 					e.preventDefault();
-					document.location = '/signin';
+					AuthController.logout();
 				}
 			},
 		})
 	}
-
 
 	render() {
 		return this.compile(template, { ...this.props });
 	}
 }
 
+const withProfile = withStore((state) => ({ ...state.user }));
+
+export const ProfileData = withProfile(Profile);

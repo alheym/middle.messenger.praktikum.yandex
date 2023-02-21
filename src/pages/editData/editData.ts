@@ -2,27 +2,37 @@ import './editData.scss';
 import template from './editData.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
-import { validForm, VALIDATION_EVENTS } from '../../utils/Validator';
+import { validForm, VALIDATION_EVENTS, isValidForm } from '../../utils/Validator';
 import { ProfileAvatar } from '../../components/ProfileAvatar/ProfileAvatar';
 import { InputEdit } from '../../components/InputEdit/InputEdit';
+import { withStore } from '../../utils/Store';
+import UserController from '../../controllers/UserController';
 
+export type User = {
+	email: string;
+	login: string;
+	first_name: string;
+	second_name: string;
+	display_name: string;
+	phone: string;
+}
 
 export class EditData extends Block {
-	constructor() {
-		super('EditData');
-	}
 
 	init() {
 
-		this.children.profileAvatar = new ProfileAvatar({
-			display_name: 'Иван',
+		this.children.inputAvatar = new ProfileAvatar({
+			display_name: this.props.display_name,
+			value: `https://ya-praktikum.tech/api/v2/resources/${this.props.avatar}`,
+			name: 'avatar',
 		});
 
 		this.children.inputEmail = new InputEdit({
 			label: 'Почта',
 			name: 'email',
 			type: 'email',
-			placeholder: 'pochta@yandex.ru',
+			placeholder: this.props.email,
+			value: this.props.email,
 			events: VALIDATION_EVENTS,
 		});
 
@@ -30,7 +40,8 @@ export class EditData extends Block {
 			label: 'Логин',
 			name: 'login',
 			type: 'login',
-			placeholder: 'ivanivanov',
+			placeholder: this.props.login,
+			value: this.props.login,
 			events: VALIDATION_EVENTS,
 		});
 
@@ -38,7 +49,8 @@ export class EditData extends Block {
 			label: 'Телефон',
 			name: 'phone',
 			type: 'phone',
-			placeholder: '+7(909) 967 30 30',
+			placeholder: this.props.phone,
+			value: this.props.phone,
 			events: VALIDATION_EVENTS,
 		});
 
@@ -46,7 +58,8 @@ export class EditData extends Block {
 			label: 'Имя в чате',
 			name: 'display_name',
 			type: 'text',
-			placeholder: 'Иван',
+			placeholder: this.props.display_name,
+			value: this.props.display_name,
 			events: VALIDATION_EVENTS,
 		});
 
@@ -54,7 +67,8 @@ export class EditData extends Block {
 			label: 'Имя',
 			name: 'first_name',
 			type: 'text',
-			placeholder: 'Иван',
+			placeholder: this.props.first_name,
+			value: this.props.first_name,
 			events: VALIDATION_EVENTS,
 		});
 
@@ -62,7 +76,8 @@ export class EditData extends Block {
 			label: 'Фамилия',
 			name: 'second_name',
 			type: 'text',
-			placeholder: 'Иванов',
+			placeholder: this.props.second_name,
+			value: this.props.second_name,
 			events: VALIDATION_EVENTS,
 		});
 
@@ -73,15 +88,32 @@ export class EditData extends Block {
 			events: {
 				click: (e: Event) => {
 					e.preventDefault();
-					validForm('.form');
+					if (isValidForm('.input')) {
+						this.onSubmit();
+					}
 				}
 			},
 		});
 	}
 
+	onSubmit() {
+		const inputFile = document.getElementById("avatar") as HTMLInputElement;
+		if (inputFile.files) {
+			const data = new FormData();
+			console.log(data.append);
+			data.append("avatar", (inputFile as any).files[0]);
+			UserController.editAvatar(data as any);
+		}
+		const data = validForm('.input');
+		UserController.editUser(data as User);
+	}
 
 	render() {
 		return this.compile(template, { ...this.props });
 	}
 
 }
+
+const withUser = withStore((state) => ({ ...state.user }));
+
+export const EditsData = withUser(EditData);

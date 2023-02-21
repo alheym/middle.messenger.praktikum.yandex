@@ -1,6 +1,12 @@
-	<div class="profile__menu-profile">
-		<label for="avatar" class="profile__menu-profile-avatar fs fs-11">
-			<input id="avatar" type="file" name="avatar" hidden />
+<div class="profile__menu-profile avatar">
+	<div class="photo-input">
+		<img class="photo-input__image" onerror="this.style.display='none'" src="{{value}}" alt="{{imageAlt}}">
+		<label class="photo-input__file {{#if disabled}}photo-input__file_disabled{{/if}}">
+			<span class="photo-input__text fs fs14">Выберите файл</span>
+			<input id="avatar" type="file" class="photo-input__input" name="{{name}}" accept="image/*"
+				onchange="onChangeAvatar()">
+			<span id="imageName" class="fs"></span>
 		</label>
-		<p class="profile__menu-profile-title fs fs-20 fw">{{display_name}}</p>
 	</div>
+	<p class="profile__menu-profile-title fs fs-20 fw">{{display_name}}</p>
+</div>

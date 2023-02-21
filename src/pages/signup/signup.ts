@@ -3,7 +3,9 @@ import template from './signup.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
 import { InputText } from '../../components/InputText/InputText';
-import { validate, setErrorMes, removeError, validForm, VALIDATION_EVENTS } from '../../utils/Validator';
+import { validate, isValidForm, setErrorMes, removeError, validForm, VALIDATION_EVENTS } from '../../utils/Validator';
+import { SignupData } from '../../api/AuthAPI';
+import AuthController from '../../controllers/AuthController';
 
 
 export class Signup extends Block {
@@ -92,7 +94,9 @@ export class Signup extends Block {
 			events: {
 				click: (e: Event) => {
 					e.preventDefault();
-					validForm('.form')
+					if (isValidForm('.form')) {
+						this.onSubmit();
+					}
 				}
 			},
 		});
@@ -101,7 +105,7 @@ export class Signup extends Block {
 			text: 'Войти',
 			className: 'button__link fs fs-11',
 			events: {
-				click: () => { }
+				click: () => { window.location.href = '/' }
 			},
 		});
 	}
@@ -120,6 +124,11 @@ export class Signup extends Block {
 		});
 
 		console.log(arrForm);
+	}
+
+	onSubmit() {
+		const data: any = validForm('.form');
+		AuthController.signup(data as SignupData);
 	}
 
 	render() {
