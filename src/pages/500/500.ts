@@ -13,7 +13,7 @@ export class ServerError extends Block {
 		this.children.error = new Error({
 			title: '500',
 			subtitle: 'Мы уже фиксим',
-			link: '/chat',
+			link: '/messenger',
 			linkText: 'Назад к чатам',
 		});
 	}

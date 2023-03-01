@@ -2,11 +2,9 @@
 
 Учебный проект по курсу Яндекс.Практикум - чат без использования фреймворков
 
-Осуществлено внедрение TypeScript, улучшена структура проекта.
-
-Добавлена реализация базового блока и Event Bus.
-
-Ко всем полям ввода применена валидация
+Добавлено взаимодействие с api,
+Реализована регистрация, авторизация, загрузка чатов и изменение пользовательских данных
+Добавлены возможности удаления чатов и добавления пользователей
 
 Использовались:
 - Сборщик Parcel
@@ -26,14 +24,17 @@
 [Макет](https://www.figma.com/file/yADVuj8HwHwK5jsdOhMwFK/messenger.yandex.praktikum?node-id=0%3A1&t=EUFbIzlvOysRbPEG-0)
 
 ## Netlify
-[Netlify](https://stupendous-pixie-3d47ea.netlify.app/)
+[Netlify](https://superb-duckanoo-771a93.netlify.app/)
 
 Приложение запустится на странице авторизации, дополнительно реализована навигация в верху страницы, которая будет убрана в дальнейшем.
 
-Информация о пользователе доступна через нажатие на гамбургер-меню, изменение данных пользователя осуществляется на отдельной странице, к которой можно перейти через раздел в профиле.
+Если пользователь авторизован то происходит редирект на страницу чатов
 
 ##
 
 [Sprint 1](https://github.com/alheym/middle.messenger.praktikum.yandex/pull/2)
 
 [Sprint 2](https://github.com/alheym/middle.messenger.praktikum.yandex/pull/5)
+
+[Sprint 3](https://github.com/alheym/middle.messenger.praktikum.yandex/pull/6)
+

@@ -10,6 +10,7 @@ interface IInputText {
 	placeholder: string;
 	classLabel?: string;
 	classInput?: string;
+	value?: string;
 	events?: {};
 }
 

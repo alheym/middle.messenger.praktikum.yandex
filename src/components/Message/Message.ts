@@ -3,12 +3,12 @@ import template from './Message.hbs';
 import Block from '../../utils/Block';
 
 
-interface IMessage {
+export interface IMessage {
 	type?: string;
-	name: string;
-	text: string | boolean;
+	user_id?: number;
+	name?: string;
+	text: string;
 	time: string;
-	img: string | boolean;
 	check: boolean;
 	classMsg: string;
 }
@@ -18,11 +18,7 @@ export class Message extends Block<IMessage> {
 		super({ type: 'Message', ...props });
 	}
 
-	public get name(): string {
-		return this.props.name;
-	}
-
-	render() {
+	render(): DocumentFragment {
 		return this.compile(template, { ...this.props });
 	}
 }

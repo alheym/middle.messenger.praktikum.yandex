@@ -1,0 +1,124 @@
+import Block from './Block';
+
+function isEqual(lhs: string, rhs: string): boolean {
+    return lhs === rhs;
+}
+
+function render(query: string, block: Block) {
+    const root = document.querySelector(query);
+
+	if(root === null) {
+		throw new Error(`Root not found "${query}"`)
+	}
+	root.innerHTML = '';
+
+	root.append(block.getContent()!);
+
+    return root;
+}
+
+class Route {
+	private _block: Block | null = null;
+
+	constructor(
+	  private _pathname: string,
+	  private readonly _blockClass: typeof Block,
+	  private readonly _query: string) {
+	}
+
+    leave() {
+        if (this._block) {
+            this._block = null;
+        }
+    }
+
+    match(pathname: string) {
+        return isEqual(pathname, this._pathname);
+    }
+
+    render() {
+        if (!this._block) {
+            this._block = new this._blockClass({});
+
+            render(this._query, this._block);
+            return;
+        }
+    }
+}
+
+class Router {
+
+	private static __instance: Router;
+	private _routes: Route[] = [];
+	private _currentRoute: Route | null = null;
+	private _history = window.history;
+
+    constructor(private readonly _rootQuery: string) {
+        if (Router.__instance) {
+            return Router.__instance;
+        }
+
+        this._routes = [];
+
+        Router.__instance = this;
+    }
+
+    // use — регистрирует блок по пути в роут и возвращает себя — чтобы можно было выстроить в цепочку;
+    use(pathname: string, block: typeof Block) {
+        const route = new Route(pathname, block, this._rootQuery);
+        this._routes.push(route);
+
+        // Возврат this — основа паттерна "Builder" («Строитель»)
+        return this;
+    }
+
+    // start — по событию onpopstate запускает приложение.
+    start() {
+        // Реагируем на изменения в адресной строке и вызываем перерисовку
+        window.onpopstate = (event: PopStateEvent) => {
+			const target = event.currentTarget as Window;
+
+            this._onRoute(target.location.pathname);
+        };
+
+        this._onRoute(window.location.pathname);
+    }
+
+    _onRoute(pathname: string) {
+        const route = this.getRoute(pathname);
+
+		if (!route) {
+			return;
+		  }
+
+        if (this._currentRoute && this._currentRoute !== route) {
+            this._currentRoute.leave();
+        }
+
+        this._currentRoute = route;
+
+        route.render();
+    }
+
+    // go — переходит на нужный роут и отображает нужный блок;
+    go(pathname: string) {
+        this._history.pushState({}, '', pathname);
+        this._onRoute(pathname);
+    }
+
+    // back — возвращает в прошлое состояние и показывает блок, соответствующий тому состоянию;
+    back() {
+        this._history.back();
+    }
+
+    // forward — переходит в следующие состояние и показывает соответствующий блок;
+    forward() {
+        this._history.forward();
+    }
+
+    getRoute(pathname: string) {
+        return this._routes.find(route => route.match(pathname));
+    }
+}
+
+export default new Router('#app');

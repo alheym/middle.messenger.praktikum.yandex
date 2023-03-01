@@ -6,7 +6,7 @@ import Block from '../../utils/Block';
 interface IChatItem {
 	type?: string;
 	id?: string;
-	avatar: { src: string } | null;
+	avatar: string;
 	name: string;
 	text: string;
 	time: string;
@@ -18,7 +18,7 @@ interface IChatItem {
 
 export class ChatItem extends Block<IChatItem> {
 	constructor(props: IChatItem) {
-		super({ type: 'ChatItem', ...props });
+		super(props);
 	}
 
 	render() {

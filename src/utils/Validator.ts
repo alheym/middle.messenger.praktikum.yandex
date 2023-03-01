@@ -35,6 +35,14 @@ const validationRules: Record<string, { reg: RegExp, error: string }> = {
 		reg: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,40}$/,
 		error: "Неверный пароль"
 	},
+	oldPassword: {
+		reg: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,40}$/,
+		error: "Неверный пароль"
+	},
+	newPassword: {
+		reg: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,40}$/,
+		error: "Неверный пароль"
+	},
 	messages: {
 		reg: /^\s*$/,
 		error: "не должно быть пустым"
@@ -59,19 +67,7 @@ export function validate(e: Event) {
 export const VALIDATION_EVENTS = {
 	focusout: validate,
 	focusin: validate,
-  }
-
-// export function validate(nameInput: string, valueInput: string) {
-// 	const pattern = validationRules[nameInput].reg
-// 	const regExp = new RegExp(pattern);
-// 	const isValid = regExp.test(String(valueInput))
-// 	if (!isValid) {
-// 		setErrorMes(nameInput, validationRules[nameInput].error);
-// 	} else {
-// 		removeError(nameInput);
-// 		removeError('form')
-// 	}
-// }
+}
 
 export function setErrorMes(name: string, error: string) {
 	let span = document.getElementById('error_' + name);
@@ -90,8 +86,8 @@ export function removeError(name: string) {
 
 export function validForm(selectorForm: string) {
 	const form = document.getElementById('form') as HTMLFormElement;
-	const spans = form.querySelectorAll('span');
-	const inputs = form.querySelectorAll('input');
+	const spans = form!.querySelectorAll('span');
+	const inputs = form!.querySelectorAll('input');
 
 	let errorsCounter = 0;
 	let arrForm: any = {};
@@ -111,11 +107,21 @@ export function validForm(selectorForm: string) {
 		inputs.forEach((input) => {
 			arrForm[input.name] = input.value;
 		});
-		console.log(arrForm);
-		return true;
+		return arrForm;
 	} else {
 		let formClass = selectorForm.substring(1, selectorForm.length)
 		setErrorMes(formClass, "Все поля должны быть заполнены")
-		return false;
+		return arrForm;
+	}
+}
+
+export function isValidForm(formSelector: string) {
+	const validFieldsObject = validForm(formSelector)
+	if (Object.keys(validFieldsObject).length > 0) {
+		console.log(validFieldsObject)
+		return true
+	} else {
+		console.log(validFieldsObject)
+		return false
 	}
 }
