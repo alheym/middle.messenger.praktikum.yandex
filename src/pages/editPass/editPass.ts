@@ -53,6 +53,7 @@ export class EditPass extends Block {
 						removeError(e.target.name)
 					}
 				},
+				// @ts-ignore
 				focusin: (e: { target: HTMLInputElement; }) => validate,
 			},
 		});

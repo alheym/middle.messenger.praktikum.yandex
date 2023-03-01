@@ -83,6 +83,7 @@ export class Signup extends Block {
 						removeError(e.target.name)
 					}
 				},
+				// @ts-ignore
 				focusin: (e: { target: HTMLInputElement; }) => validate,
 			},
 		});

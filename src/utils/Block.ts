@@ -42,7 +42,7 @@ class Block<Props extends Record<string, any> = any> {
 		eventBus.emit(Block.EVENTS.INIT);
 	}
 
-	_getChildrenAndProps(childrenAndProps: Props): { props: Props, children: Record<string, Block | Block[]> } {
+	private _getChildrenAndProps(childrenAndProps: Props): { props: Props, children: Record<string, Block | Block[]> } {
 		const props: Record<string, unknown> = {};
 		const children: Record<string, Block | Block[]> = {};
 
@@ -59,7 +59,7 @@ class Block<Props extends Record<string, any> = any> {
 		return { props: props as Props, children };
 	}
 
-	_addEvents() {
+	private _addEvents() {
 		const { events = {} } = this.props as Props & { events: Record<string, () => void> };
 
 		Object.keys(events).forEach(eventName => {
@@ -67,21 +67,21 @@ class Block<Props extends Record<string, any> = any> {
 		});
 	}
 
-	_removeEvents(): void {
+	private _removeEvents(): void {
 		const { events = {} } = this.props as { events?: Record<string, () => void> };
 		Object.keys(events).forEach((eventName) => {
 			this._element?.removeEventListener(eventName, events[eventName]);
 		});
 	}
 
-	_registerEvents(eventBus: EventBus) {
+	private _registerEvents(eventBus: EventBus) {
 		eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
 		eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
 		eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
 		eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
 	}
 
-	_init() {
+	private _init() {
 		this.init();
 
 		this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
@@ -90,7 +90,7 @@ class Block<Props extends Record<string, any> = any> {
 	init() {
 	}
 
-	_componentDidMount(): void {
+	private _componentDidMount(): void {
 		this.componentDidMount();
 	}
 
@@ -101,13 +101,14 @@ class Block<Props extends Record<string, any> = any> {
 		this.eventBus().emit(Block.EVENTS.FLOW_CDM);
 	}
 
-	_componentDidUpdate(oldProps: Props, newProps: Props) {
+	private _componentDidUpdate(oldProps: Props, newProps: Props) {
 		if (this.componentDidUpdate(oldProps, newProps)) {
 			this._removeEvents();
 			this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
 		}
 	}
 
+	// @ts-ignore
 	componentDidUpdate(oldProps?: Props, newProps?: Props) {
 		return true;
 	}
@@ -124,7 +125,7 @@ class Block<Props extends Record<string, any> = any> {
 		return this._element;
 	}
 
-	_render() {
+	private _render() {
 		this.initChildren();
 
 		const fragment = this.render();
@@ -189,7 +190,7 @@ class Block<Props extends Record<string, any> = any> {
 		return this.element;
 	}
 
-	_makePropsProxy(props: any) {
+	private _makePropsProxy(props: any) {
 		return new Proxy(props, {
 			get: (target, prop) => {
 				const value = target[prop];

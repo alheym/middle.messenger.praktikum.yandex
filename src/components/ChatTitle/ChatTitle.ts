@@ -7,12 +7,12 @@ import { withStore } from '../../utils/Store';
 import { ChatInfo, IChatMember } from '../../api/ChatAPI';
 import { User } from '../../api/AuthAPI';
 
-interface IChatTitle {
-	type?: string;
-	id?: number;
-	chatName: string;
-	userAvatar: string;
-}
+// interface IChatTitle {
+// 	type?: string;
+// 	id?: number;
+// 	chatName: string;
+// 	userAvatar: string;
+// }
 
 interface IaddUsers {
 	type?: string;

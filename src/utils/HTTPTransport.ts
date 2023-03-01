@@ -59,6 +59,7 @@ export default class HTTPTransport {
 			const xhr = new XMLHttpRequest();
 			xhr.open(method as METHOD, url);
 
+			// @ts-ignore
 			xhr.onreadystatechange = (e: any) => {
 
 				if (xhr.readyState === XMLHttpRequest.DONE) {

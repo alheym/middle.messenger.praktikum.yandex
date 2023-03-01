@@ -56,6 +56,7 @@ export class Chat extends Block {
 				this.children.messages.unshift(
 					new Message({
 						name: message.name,
+						// @ts-ignore
 						text: message.content,
 						time: `${date.getHours()}:${date.getMinutes()}`,
 						check: message.check,

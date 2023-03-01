@@ -49,7 +49,7 @@ class Route {
 class Router {
 
 	private static __instance: Router;
-	private _routes: Route[] = [];
+	public _routes: Route[] = [];
 	private _currentRoute: Route | null = null;
 	private _history = window.history;
 
@@ -84,7 +84,7 @@ class Router {
         this._onRoute(window.location.pathname);
     }
 
-    _onRoute(pathname: string) {
+    private _onRoute(pathname: string) {
         const route = this.getRoute(pathname);
 
 		if (!route) {

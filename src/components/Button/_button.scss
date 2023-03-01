@@ -7,7 +7,7 @@
     border-radius: 8px;
     border: none;
     cursor: pointer;
-	caret-color: transparent;
+    caret-color: transparent;
     padding: 12px;
 
     &__primary {
@@ -15,15 +15,15 @@
         color: #FFFFFF;
     }
 
-	&__red {
-		background: rgb(233, 159, 159);
-		color: #FFFFFF;
-	}
+    &__red {
+        background: rgb(233, 159, 159);
+        color: #FFFFFF;
+    }
 
-	&__disabled {
-		background: #d1d1d1;
-		color: black;
-	}
+    &__disabled {
+        background: #d1d1d1;
+        color: black;
+    }
 
     &__link {
         color: $link-color;
