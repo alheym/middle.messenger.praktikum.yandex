@@ -2,23 +2,26 @@
 
 Учебный проект по курсу Яндекс.Практикум - чат без использования фреймворков
 
-Добавлено взаимодействие с api,
-Реализована регистрация, авторизация, загрузка чатов и изменение пользовательских данных
-Добавлены возможности удаления чатов и добавления пользователей
+Добавлены юнит-тесты для роутера, модуля отправки запросов и компонента кнопки.
+Реализована сборка проекта с помощью Webpack и добавлены файлы для контейниризации с использованием Docker.
 
 Использовались:
-- Сборщик Parcel
+- Сборщик Webpack
 - Шаблонизатор Handlebars
-- Netlify
 - TypeScript
 - Stylelint
+- Docker
 - ESLint
+- Mocha
+- Chai
 
 ## Установка
 
 - `npm run dev`
-- `npm run start`
-- `npm run build`
+- `npm run build:dev`
+- `npm run build:prod`
+- `npm run serve`
+- `npm run test`
 
 ## UI
 [Макет](https://www.figma.com/file/yADVuj8HwHwK5jsdOhMwFK/messenger.yandex.praktikum?node-id=0%3A1&t=EUFbIzlvOysRbPEG-0)
