@@ -41,3 +41,5 @@
 
 [Sprint 3](https://github.com/alheym/middle.messenger.praktikum.yandex/pull/6)
 
+[Sprint 4](https://github.com/alheym/middle.messenger.praktikum.yandex/pull/7)
+
