@@ -1,23 +1,22 @@
+import { nanoid } from 'nanoid';
 import { EventBus } from './EventBus';
-import { nanoid } from 'nanoid'
-
 
 class Block<Props extends Record<string, any> = any> {
 	static EVENTS = {
 		INIT: 'init',
 		FLOW_CDM: 'flow:component-did-mount',
 		FLOW_CDU: 'flow:component-did-update',
-		FLOW_RENDER: 'flow:render'
+		FLOW_RENDER: 'flow:render',
 	} as const;
 
-
-
 	public id = nanoid(6);
+
 	public children: Record<string, any>;
 
 	protected props: Props;
 
 	private eventBus: () => EventBus;
+
 	private _element: HTMLElement | null = null;
 
 	/** JSDoc
@@ -28,7 +27,6 @@ class Block<Props extends Record<string, any> = any> {
 	 */
 
 	constructor(propsWithChildren: Props) {
-
 		const eventBus = new EventBus();
 		const { props, children } = this._getChildrenAndProps(propsWithChildren);
 
@@ -47,7 +45,7 @@ class Block<Props extends Record<string, any> = any> {
 		const children: Record<string, Block | Block[]> = {};
 
 		Object.entries(childrenAndProps).forEach(([key, value]) => {
-			if (Array.isArray(value) && value.length > 0 && value.every(v => v instanceof Block)) {
+			if (Array.isArray(value) && value.length > 0 && value.every((v) => v instanceof Block)) {
 				children[key as string] = value;
 			} else if (value instanceof Block) {
 				children[key as string] = value;
@@ -62,7 +60,7 @@ class Block<Props extends Record<string, any> = any> {
 	private _addEvents() {
 		const { events = {} } = this.props as Props & { events: Record<string, () => void> };
 
-		Object.keys(events).forEach(eventName => {
+		Object.keys(events).forEach((eventName) => {
 			this._element?.addEventListener(eventName, events[eventName]);
 		});
 	}
@@ -109,6 +107,7 @@ class Block<Props extends Record<string, any> = any> {
 	}
 
 	// @ts-ignore
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	componentDidUpdate(oldProps?: Props, newProps?: Props) {
 		return true;
 	}
@@ -154,20 +153,21 @@ class Block<Props extends Record<string, any> = any> {
 			([key, child]: [string, Block<Props>]) => {
 				if (Array.isArray(child)) {
 					contextAndStubs[key] = child.map(
-						(item) => `<div data-id="${item.id}"></div>`
+						(item) => `<div data-id="${item.id}"></div>`,
 					);
 					return;
 				}
 				contextAndStubs[key] = `<div data-id="${child.id}"></div>`;
-			}
+			},
 		);
 
-		const temp = document.createElement("template");
+		const temp = document.createElement('template');
 
-		temp.innerHTML = template(contextAndStubs).split(",").join("");
+		temp.innerHTML = template(contextAndStubs).split(',').join('');
 
 		Object.values(this.children).forEach((child: Block<Props>) => {
 			if (Array.isArray(child)) {
+				// eslint-disable-next-line array-callback-return
 				child.map((item) => {
 					const stub = temp.content.querySelector(`[data-id="${item.id}"]`);
 					if (!stub) return;
@@ -177,7 +177,7 @@ class Block<Props extends Record<string, any> = any> {
 				return;
 			}
 			const stub = temp.content.querySelector(
-				`[data-id="${child.id}"]`
+				`[data-id="${child.id}"]`,
 			) as HTMLElement;
 			if (!stub) return;
 			stub.replaceWith(child.getContent()!);
@@ -194,7 +194,7 @@ class Block<Props extends Record<string, any> = any> {
 		return new Proxy(props, {
 			get: (target, prop) => {
 				const value = target[prop];
-				return typeof value === "function" ? value.bind(target) : value;
+				return typeof value === 'function' ? value.bind(target) : value;
 			},
 			set: (target, prop, value) => {
 				target[prop] = value;
@@ -203,7 +203,7 @@ class Block<Props extends Record<string, any> = any> {
 				return true;
 			},
 			deleteProperty: () => {
-				throw new Error("Нет доступа");
+				throw new Error('Нет доступа');
 			},
 		});
 	}

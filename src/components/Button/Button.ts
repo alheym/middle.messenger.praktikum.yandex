@@ -2,7 +2,6 @@ import './_button.scss';
 import Block from '../../utils/Block';
 import template from './Button.tmpl.hbs';
 
-
 interface IButton {
 	type?: string;
 	className: string;

@@ -2,16 +2,13 @@ import './chat.scss';
 import template from './chat.hbs';
 import Block from '../../utils/Block';
 import { ChatItem } from '../../components/ChatItem/ChatItem';
-import { Message } from '../../components/Message/Message';
+import { Message, IMessage } from '../../components/Message/Message';
 import { Button } from '../../components/Button/Button';
 import { ChatTitles } from '../../components/ChatTitle/ChatTitle';
 import ChatController from '../../controllers/ChatController';
-import { IMessage } from '../../components/Message/Message';
 import { withStore } from '../../utils/Store';
 
-
 export class Chat extends Block {
-
 	protected initChildren() {
 		// console.log(this.props);
 
@@ -26,17 +23,17 @@ export class Chat extends Block {
 
 				this.children.chatList.push(new ChatItem({
 					name: chats.title,
-					text: text,
+					text,
 					uread: chats.unread_count!,
 					avatar: chats.avatar!,
-					time: time,
+					time,
 					events: {
 						click: () => {
 							ChatController.getChat(chats.id, this.props.user.id, chats.title);
 						},
-					}
-				}))
-			})
+					},
+				}));
+			});
 		}
 
 		if (this.props?.token !== undefined) {
@@ -60,7 +57,7 @@ export class Chat extends Block {
 						text: message.content,
 						time: `${date.getHours()}:${date.getMinutes()}`,
 						check: message.check,
-						classMsg: myMessage ? 'message__you' : 'message__comp'
+						classMsg: myMessage ? 'message__you' : 'message__comp',
 					}),
 				);
 			});
@@ -72,37 +69,38 @@ export class Chat extends Block {
 			events: {
 				click: (e: Event) => {
 					e.preventDefault();
-					const elm = document.querySelector('[name="message"]') as HTMLInputElement
-					const data = elm.value
+					const elm = document.querySelector('[name="message"]') as HTMLInputElement;
+					const data = elm.value;
 					ChatController.sendMessage(data);
-				}
+				},
 			},
-		})
+		});
 
 		this.children.btnAdd = new Button({
 			className: 'button__add',
 			events: {
-				click: () => { }
+				// eslint-disable-next-line no-empty-function
+				click: () => {},
 			},
-		})
+		});
 
 		this.children.addChatBtn = new Button({
 			text: 'Новый чат',
 			className: 'button__primary fs fs-13',
 			events: {
 				click: () => {
-					let data = "Новый чат"
-					const chatName = prompt("Пожалуйста, введите имя чата:", data);
-					if (chatName != null || chatName != "") {
-						data = chatName!
+					let data = 'Новый чат';
+					const chatName = prompt('Пожалуйста, введите имя чата:', data);
+					if (chatName != null || chatName !== '') {
+						data = chatName!;
 					}
 					if (data) {
-						const chatTitleObj = { 'title': data }
+						const chatTitleObj = { title: data };
 						ChatController.createChat(chatTitleObj);
 					}
-				}
+				},
 			},
-		})
+		});
 	}
 
 	render() {
@@ -116,7 +114,7 @@ const withChats = withStore((state) => ({
 	nameChat: state.nameChat,
 	token: state.token,
 	user: state.user,
-	chat: state.chat
+	chat: state.chat,
 }));
 
 export const Chats = withChats(Chat);

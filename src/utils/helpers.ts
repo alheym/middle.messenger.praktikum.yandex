@@ -5,13 +5,14 @@ export type Indexed<T = any> = {
 // объединение объектов
 export function merge(lhs: Indexed, rhs: Indexed): Indexed {
 	// Если свойство p не принадлежит rhs, итерация продолжается до следующего свойства.
-	for (let p in rhs) {
+	for (const p in rhs) {
 		if (!rhs.hasOwnProperty(p)) {
 			continue;
 		}
 
 		try {
-			// Если свойство rhs[p] является объектом, функция рекурсивно вызывает себя с аргументами lhs[p] и rhs[p] в качестве аргументов. Затем результат рекурсивного вызова присваивается обратно rhs[p].
+			// Если свойство rhs[p] является объектом, функция рекурсивно вызывает себя с аргументами lhs[p] и rhs[p] в качестве аргументов.
+			// Затем результат рекурсивного вызова присваивается обратно rhs[p].
 			if (rhs[p].constructor === Object) {
 				rhs[p] = merge(lhs[p] as Indexed, rhs[p] as Indexed);
 			} else {
@@ -44,7 +45,6 @@ export function set(object: Indexed | unknown, path: string, value: unknown): In
 	return merge(object as Indexed, result);
 }
 
-
 function isPlainObject(value: unknown): value is Indexed {
 	return typeof value === 'object'
 		&& value !== null
@@ -65,7 +65,6 @@ function isArrayOrObject(value: unknown): value is ([] | Indexed) {
 }
 
 export function isEqual(lhs: Indexed, rhs: Indexed) {
-
 	if (!lhs && !rhs) {
 		return true;
 	}
@@ -86,23 +85,21 @@ export function isEqual(lhs: Indexed, rhs: Indexed) {
 		const rightValue = rhs[key];
 
 		if (isArrayOrObject(value) && isArrayOrObject(rightValue)) {
-
 			if (isPlainObject(value) && isPlainObject(rightValue)) {
 				if (isEqual(value, rightValue)) {
 					continue;
 				}
 
 				return false;
-			} else if (isArray(value) && isArray(rightValue)) {
+			} if (isArray(value) && isArray(rightValue)) {
 				if (isEqual(value as unknown as Indexed, rightValue as unknown as Indexed)) {
 					continue;
 				}
 
 				return false;
-			} else {
-
-				return false;
 			}
+
+			return false;
 		}
 
 		if (isFunction(value) && isFunction(rightValue)) {

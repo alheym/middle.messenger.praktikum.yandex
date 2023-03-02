@@ -3,7 +3,7 @@ const Handlebars = require('handlebars');
 const fs = require('fs');
 
 const { window } = new JSDOM('<div id="app"></div>', {
-	url: 'http://localhost:3000'
+	url: 'http://localhost:3000',
 });
 
 global.window = window;
@@ -18,4 +18,4 @@ require.extensions['.hbs'] = function (module, filename) {
 
 require.extensions['.scss'] = function () {
 	module.exports = () => ({});
-}
+};

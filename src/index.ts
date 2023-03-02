@@ -11,8 +11,6 @@ import Router from './utils/Router';
 import AuthController from './controllers/AuthController';
 import ChatController from './controllers/ChatController';
 
-
-
 export enum ROUTES {
 	Home = '/',
 	Signup = '/sign-up',
@@ -33,15 +31,16 @@ window.addEventListener('DOMContentLoaded', async () => {
 		.use(ROUTES.EditData, EditsData)
 		.use(ROUTES.EditPass, EditsPass)
 		.use(ROUTES.NotFound, NotFound)
-		.use(ROUTES.ServerError, ServerError)
+		.use(ROUTES.ServerError, ServerError);
 
 	let isProtectedRoute = true;
 
+	// eslint-disable-next-line default-case
 	switch (window.location.pathname) {
-		case ROUTES.Home:
-		case ROUTES.Signup:
-			isProtectedRoute = false;
-			break;
+	case ROUTES.Home:
+	case ROUTES.Signup:
+		isProtectedRoute = false;
+		break;
 	}
 
 	try {
@@ -53,13 +52,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 		if (!isProtectedRoute) {
 			Router.go(ROUTES.Chats);
 		}
-	}
-	catch (e) {
+	} catch (e) {
 		Router.start();
 
 		if (isProtectedRoute) {
 			Router.go(ROUTES.Home);
 		}
 	}
-})
-
+});

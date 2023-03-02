@@ -2,7 +2,6 @@ import './_message.scss';
 import template from './Message.hbs';
 import Block from '../../utils/Block';
 
-
 export interface IMessage {
 	type?: string;
 	user_id?: number;
@@ -22,4 +21,3 @@ export class Message extends Block<IMessage> {
 		return this.compile(template, { ...this.props });
 	}
 }
-

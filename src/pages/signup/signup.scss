@@ -1,52 +1,51 @@
-@import '../../variables/font';
+@import "../../variables/font";
 
 .main {
-    margin-top: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-top: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .signup {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    height: 615px;
+    box-shadow: 0 0 6px rgb(0 0 0 / 14%);
+    border-radius: 12px;
+  }
 
-    &__form {
-        display: flex;
-        flex-direction: column;
-        width: 340px;
-        height: 615px;
-        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
-        border-radius: 12px;
-    }
+  &__container {
+    height: 100%;
+    display: flex;
+    padding: 50px 30px 30px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-    &__container {
-        height: 100%;
-        display: flex;
-        padding: 50px 30px 30px;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+  &__title {
+    text-align: center;
+    margin: 0;
+    color: #1e1e1e;
+    cursor: default;
+  }
 
-    &__title {
-        text-align: center;
-        margin: 0;
-        color: #1E1E1E;
-        cursor: default;
-    }
+  &_wrapper {
+    display: flex;
+    margin-bottom: 20px;
+    border: none;
+  }
 
-    &_wrapper {
-        display: flex;
-        margin-bottom: 20px;
-        border: none;
-    }
+  &__error {
+    margin: 0;
+    color: #ff2f2f;
+    cursor: default;
+  }
 
-	&__error {
-		margin: 0;
-        color: #FF2F2F;
-        cursor: default;
-	}
-
-    &__button {
-        display: flex;
-        flex-direction: column;
-    }
+  &__button {
+    display: flex;
+    flex-direction: column;
+  }
 }

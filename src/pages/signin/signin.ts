@@ -7,7 +7,6 @@ import { validForm, isValidForm, VALIDATION_EVENTS } from '../../utils/Validator
 import { SigninData } from '../../api/AuthAPI';
 import AuthController from '../../controllers/AuthController';
 
-
 export class Signin extends Block {
 	constructor() {
 		super('Signin');
@@ -42,7 +41,7 @@ export class Signin extends Block {
 					if (isValidForm('.form')) {
 						this.onSubmit();
 					}
-				}
+				},
 			},
 		});
 
@@ -50,7 +49,7 @@ export class Signin extends Block {
 			text: 'Нет аккаунта?',
 			className: 'button__link fs fs-11',
 			events: {
-				click: () => { window.location.href = '/sign-up' }
+				click: () => { window.location.href = '/sign-up'; },
 			},
 		});
 	}

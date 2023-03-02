@@ -1,7 +1,6 @@
 import template from './InputSearch.hbs';
 import Block from '../../utils/Block';
 
-
 interface IInputSearch {
 	type?: string;
 	name: string;
@@ -15,7 +14,7 @@ interface IInputSearch {
 
 export class InputSearch extends Block<IInputSearch> {
 	constructor(props: IInputSearch) {
-		super({type: 'InputText', ...props});
+		super({ type: 'InputText', ...props });
 	}
 
 	clear() {
@@ -24,5 +23,5 @@ export class InputSearch extends Block<IInputSearch> {
 
 	render() {
 		return this.compile(template, { ...this.props });
-	  }
+	}
 }
