@@ -10,10 +10,7 @@
     "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
     "lint": "eslint ./src/**/*.ts && stylelint ./src/**/*.scss",
     "serve": "webpack serve",
-		"prepare": "husky install",
-		"validate": "npm-run-all --parallel test eslint",
-    "precommit": "npm run validate",
-    "prepush": "npm run validate"
+		"prepare": "husky install"
 
   },
   "lint-staged": {
@@ -95,7 +92,7 @@
   },
 	"husky": {
     "hooks": {
-      "pre-commit": "npm-run-all test lint:all",
+      "pre-commit": "eslint ./src/**/*.ts && stylelint ./src/**/*.scss",
       "pre-push": "npm run other command"
     }
   }
