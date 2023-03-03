@@ -23,7 +23,7 @@ export enum ROUTES {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
-	Router
+	// Router
 		.use(ROUTES.Home, Signin)
 		.use(ROUTES.Signup, Signup)
 		.use(ROUTES.Chats, Chats)
