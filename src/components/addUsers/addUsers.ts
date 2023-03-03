@@ -6,7 +6,7 @@ import UserController from '../../controllers/UserController';
 import { withStore } from '../../utils/Store';
 import { ChatInfo, IChatMember } from '../../api/ChatAPI';
 import { User } from '../../api/AuthAPI';
-import { InputSearch } from '../../components/InputSearch/InputSearch';
+import { InputSearch } from '../InputSearch/InputSearch';
 
 interface IaddUsers {
 	searchInput: InputSearch;
@@ -20,7 +20,10 @@ interface IaddUsers {
 
 export class addUsers extends Block<IaddUsers> {
 	isAdmin: boolean = false;
+
 	chatData: ChatInfo | undefined = undefined;
+
+	// eslint-disable-next-line no-undef
 	search: NodeJS.Timeout | number = 0;
 
 	constructor(props: IaddUsers) {
@@ -28,8 +31,8 @@ export class addUsers extends Block<IaddUsers> {
 
 		this.children.searchInput.setProps({
 			events: {
-				input: this.findUsers.bind(this)
-			}
+				input: this.findUsers.bind(this),
+			},
 		});
 
 		this.element!.addEventListener('click', async (e) => {
@@ -50,7 +53,7 @@ export class addUsers extends Block<IaddUsers> {
 				member.isAdmin = true;
 			}
 		});
-		this.setProps({ currentChatMembers: chatMembers, users: chatMembers })
+		this.setProps({ currentChatMembers: chatMembers, users: chatMembers });
 	}
 
 	findUsers(e: Event) {
@@ -60,13 +63,12 @@ export class addUsers extends Block<IaddUsers> {
 			this.search = setTimeout(async () => {
 				if (target.value) {
 					const users = await UserController.findUser({ login: target.value });
-					console.log(users);
 					this.setProps({ searching: true, users });
 				} else {
 					await this.loadChatMembers();
 					this.setProps({ searching: false });
 				}
-			}, 700)
+			}, 700);
 		}
 	}
 
@@ -89,7 +91,7 @@ const withUser = withStore((state) => ({
 	chatId: state.chatId,
 	token: state.token,
 	user_data: state.user_data,
-	chat: state.chat
+	chat: state.chat,
 }));
 
 export const addUser = withUser(addUsers as unknown as typeof Block);

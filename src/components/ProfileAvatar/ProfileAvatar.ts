@@ -10,6 +10,7 @@ type PhotoInputProps = {
 	classInput?: string;
 	loadedImage?: File;
 	name?: string;
+	src?: string;
 	events?: {
 		click: () => void;
 	};
@@ -29,13 +30,12 @@ export class ProfileAvatar extends Block<PhotoInputProps> {
 			const target = e.target as HTMLInputElement;
 
 			if (target.files && target.files.length) {
-				this.setProps({ loadedImage: target.files[0], value: URL.createObjectURL(target.files[0]) })
+				this.setProps({ loadedImage: target.files[0], value: URL.createObjectURL(target.files[0]) });
 			}
 		}
 	}
 
 	render() {
-		return this.compile(template, { ...this.props })
+		return this.compile(template, { ...this.props });
 	}
 }
-

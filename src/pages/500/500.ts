@@ -3,7 +3,6 @@ import template from './500.hbs';
 import Block from '../../utils/Block';
 import { Error } from '../../components/Error/Error';
 
-
 export class ServerError extends Block {
 	constructor() {
 		super('ServerError');
@@ -22,4 +21,3 @@ export class ServerError extends Block {
 		return this.compile(template, { ...this.props });
 	}
 }
-

@@ -2,7 +2,7 @@ import API, { AuthAPI, SigninData, SignupData } from '../api/AuthAPI';
 import store from '../utils/Store';
 import router from '../utils/Router';
 
-export class AuthController {
+class AuthController {
 	_api: AuthAPI;
 
 	constructor() {
@@ -30,7 +30,6 @@ export class AuthController {
 			await this.fetchUser();
 			// setTimeout(() => location.reload(), 500);
 			// router.go('/profile');
-
 		} catch (e: any) {
 			console.error(e.message);
 		}
@@ -49,7 +48,6 @@ export class AuthController {
 			await this._api.logout();
 			// перенаправление на домашнюю страницу в случае успеха
 			router.go('/');
-
 		} catch (e: any) {
 			console.error(e.message);
 		}
@@ -62,6 +60,7 @@ export class AuthController {
 			console.error(e.message);
 		}
 	}
+
 	async forward() {
 		try {
 			router.forward();
@@ -71,4 +70,4 @@ export class AuthController {
 	}
 }
 
-export default new AuthController()
+export default new AuthController();

@@ -1,9 +1,10 @@
-import API, { ChatsAPI, TypesUsersChat, TypesChat } from '../api/ChatAPI';
-import { ChatInfo } from '../api/ChatAPI';
+import API, {
+	ChatsAPI, TypesUsersChat, TypesChat, ChatInfo,
+} from '../api/ChatAPI';
 import store from '../utils/Store';
 import router from '../utils/Router';
 
-export class ChatController {
+class ChatController {
 	_api: ChatsAPI;
 
 	socket: WebSocket | null;
@@ -118,7 +119,7 @@ export class ChatController {
 
 	async deleteChat(id: number) {
 		try {
-			await this._api.deleteChat(id)
+			await this._api.deleteChat(id);
 			store.set('token', undefined);
 			await this.getChats();
 		} catch (e: any) {
@@ -162,4 +163,3 @@ export class ChatController {
 }
 
 export default new ChatController();
-

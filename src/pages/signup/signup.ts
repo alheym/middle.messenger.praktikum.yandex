@@ -3,10 +3,11 @@ import template from './signup.hbs';
 import Block from '../../utils/Block';
 import { Button } from '../../components/Button/Button';
 import { InputText } from '../../components/InputText/InputText';
-import { validate, isValidForm, setErrorMes, removeError, validForm, VALIDATION_EVENTS } from '../../utils/Validator';
+import {
+	validate, isValidForm, setErrorMes, removeError, validForm, VALIDATION_EVENTS,
+} from '../../utils/Validator';
 import { SignupData } from '../../api/AuthAPI';
 import AuthController from '../../controllers/AuthController';
-
 
 export class Signup extends Block {
 	constructor() {
@@ -78,11 +79,13 @@ export class Signup extends Block {
 				focusout: (e: { target: HTMLInputElement; }) => {
 					const pass = document.querySelector('input[name=password]') as HTMLInputElement;
 					if (pass.value !== (e.target as HTMLInputElement).value) {
-						setErrorMes(e.target.name, 'Пароли не совпадают')
+						setErrorMes(e.target.name, 'Пароли не совпадают');
 					} else {
-						removeError(e.target.name)
+						removeError(e.target.name);
 					}
 				},
+				// @ts-ignore
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				focusin: (e: { target: HTMLInputElement; }) => validate,
 			},
 		});
@@ -97,7 +100,7 @@ export class Signup extends Block {
 					if (isValidForm('.form')) {
 						this.onSubmit();
 					}
-				}
+				},
 			},
 		});
 
@@ -105,19 +108,17 @@ export class Signup extends Block {
 			text: 'Войти',
 			className: 'button__link fs fs-11',
 			events: {
-				click: () => { window.location.href = '/' }
+				click: () => { window.location.href = '/'; },
 			},
 		});
 	}
 
-
 	formSubmit(e: Event) {
-
 		e.preventDefault();
 		const form = document.getElementById('form') as HTMLFormElement;
 		const inputs = form.querySelectorAll('input');
 
-		let arrForm: any = {};
+		const arrForm: any = {};
 
 		inputs.forEach((input) => {
 			arrForm[input.name] = input.value;

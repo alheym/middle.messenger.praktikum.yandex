@@ -2,7 +2,6 @@ import './_chatItem.scss';
 import template from './ChatItem.hbs';
 import Block from '../../utils/Block';
 
-
 interface IChatItem {
 	type?: string;
 	id?: string;
@@ -25,4 +24,3 @@ export class ChatItem extends Block<IChatItem> {
 		return this.compile(template, { ...this.props });
 	}
 }
-

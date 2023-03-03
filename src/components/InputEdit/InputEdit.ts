@@ -2,7 +2,6 @@ import './_inputEdit.scss';
 import template from './InputEdit.hbs';
 import Block from '../../utils/Block';
 
-
 interface IInputEdit {
 	type?: string;
 	name: string;

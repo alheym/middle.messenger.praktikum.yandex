@@ -1,49 +1,48 @@
 .modal {
+  .active {
+    display: block;
+  }
 
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgb(0 0 0 / 14%);
 
-    .active {
-        display: block;
-    }
+  &__container {
+    max-height: 400px;
+    padding: 20px;
+    display: none;
+    overflow-y: auto;
+  }
 
-    max-width: 600px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
-
-    &__container {
-        padding: 20px;
-		display: none;
-    }
-
-    &__title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .search__input {
-    display: block;
-    width: 95%;
+  display: block;
+  width: 95%;
 }
 
 .photo-input {
-    &-avatar {
-        width: 100px;
-        height: 100px;
-    }
-
+  &-avatar {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .user-item {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .user__item {
-    &-name {
-        margin: 5px;
-    }
+  &-name {
+    margin: 5px;
+  }
 }
 
 .users__list {
-    list-style: none;
+  list-style: none;
 }

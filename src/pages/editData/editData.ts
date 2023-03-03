@@ -18,9 +18,7 @@ export type User = {
 }
 
 export class EditData extends Block {
-
 	init() {
-
 		this.children.inputAvatar = new ProfileAvatar({
 			display_name: this.props.display_name,
 			value: `https://ya-praktikum.tech/api/v2/resources/${this.props.avatar}`,
@@ -91,17 +89,17 @@ export class EditData extends Block {
 					if (isValidForm('.input')) {
 						this.onSubmit();
 					}
-				}
+				},
 			},
 		});
 	}
 
 	onSubmit() {
-		const inputFile = document.getElementById("avatar") as HTMLInputElement;
-		if (inputFile.files) {
+		const inputFile = document.getElementById('avatar') as HTMLInputElement;
+		if (inputFile.files?.length !== 0) {
 			const data = new FormData();
 			console.log(data.append);
-			data.append("avatar", (inputFile as any).files[0]);
+			data.append('avatar', (inputFile as any).files[0]);
 			UserController.editAvatar(data as any);
 		}
 		const data = validForm('.input');
@@ -111,7 +109,6 @@ export class EditData extends Block {
 	render() {
 		return this.compile(template, { ...this.props });
 	}
-
 }
 
 const withUser = withStore((state) => ({ ...state.user }));

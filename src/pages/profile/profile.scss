@@ -1,70 +1,65 @@
 .profile {
+  &__back {
+    left: 0;
+    z-index: 0;
+    position: fixed;
+    width: 64px;
+    height: 100%;
+    background: #fbfbfb;
+    border-right: 1px solid #eaeaea;
 
-    &__back {
-        left: 0;
-        z-index: 0;
-        position: fixed;
-        width: 64px;
-        height: 100%;
-        background: #fbfbfb;
-        border-right: 1px solid #eaeaea;
+    &-link {
+      top: 400px;
+      left: 15px;
+      z-index: 1;
+      position: fixed;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      background-image: url("../../image/btnBack.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      caret-color: transparent;
+    }
+  }
 
-        &-link {
-            top: 400px;
-            left: 15px;
-            z-index: 1;
-            position: fixed;
-            border-radius: 50%;
-            width: 34px;
-            height: 34px;
-            background-image: url("../../image/btnBack.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-			cursor: pointer;
-			caret-color: transparent;
-        }
+  &__info {
+    &-container {
+      width: 370px;
     }
 
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      margin-top: 95px;
 
-    &__info {
+      &-btn {
+        cursor: pointer;
+        border-bottom: 1px solid #eaeaea;
 
-        &-container {
-            width: 370px;
+        &:last-child {
+          border-bottom: none;
         }
-
-        &-wrap {
-            display: flex;
-            flex-direction: column;
-            padding: 15px;
-            margin-top: 95px;
-
-
-            &-btn {
-                cursor: pointer;
-                border-bottom: 1px solid #eaeaea;
-
-                &:last-child {
-                    border-bottom: none;
-                }
-            }
-        }
+      }
     }
+  }
 }
 
 .button {
+  &__link {
+    height: 33px;
+    font-size: 13px;
+    text-align: left;
+  }
 
-    &__link {
-        height: 33px;
-        font-size: 13px;
-        text-align: left;
-    }
-
-    &.red {
-        color: #CD2727;
-    }
+  &.red {
+    color: #cd2727;
+  }
 }
 
 .readonly {
-	caret-color: transparent;
-	cursor: default;
+  caret-color: transparent;
+  cursor: default;
 }
