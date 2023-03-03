@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 		.use(ROUTES.EditData, EditsData)
 		.use(ROUTES.EditPass, EditsPass)
 		.use(ROUTES.NotFound, NotFound)
-		.use(ROUTES.ServerError, ServerError);
+		.use(ROUTES.ServerError, ServerError);fghjk
 
 	let isProtectedRoute = true;
 
