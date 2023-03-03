@@ -12,11 +12,9 @@
     "serve": "webpack serve",
     "prepare": "husky install"
   },
-	"lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ]
+  "lint-staged": {
+    "*.ts": "eslint",
+    "*.sсss": "stylelint"
   },
   "repository": {
     "type": "git",
