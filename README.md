@@ -27,7 +27,7 @@
 [Макет](https://www.figma.com/file/yADVuj8HwHwK5jsdOhMwFK/messenger.yandex.praktikum?node-id=0%3A1&t=EUFbIzlvOysRbPEG-0)
 
 ## Netlify
-[Netlify](https://superb-duckanoo-771a93.netlify.app/)
+[Netlify](https://bucolic-custard-91416d.netlify.app/)
 
 Приложение запустится на странице авторизации, дополнительно реализована навигация в верху страницы, которая будет убрана в дальнейшем.
 
