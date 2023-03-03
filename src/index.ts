@@ -23,7 +23,7 @@ export enum ROUTES {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
-	// Router
+	Router
 		.use(ROUTES.Home, Signin)
 		.use(ROUTES.Signup, Signup)
 		.use(ROUTES.Chats, Chats)
@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 		.use(ROUTES.EditData, EditsData)
 		.use(ROUTES.EditPass, EditsPass)
 		.use(ROUTES.NotFound, NotFound)
-		.use(ROUTES.ServerError, ServerError);fghjk
+		.use(ROUTES.ServerError, ServerError);
 
 	let isProtectedRoute = true;
 
