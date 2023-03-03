@@ -14,6 +14,7 @@
 - ESLint
 - Mocha
 - Chai
+- Husky
 
 ## Установка
 
