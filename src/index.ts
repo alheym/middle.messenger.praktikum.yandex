@@ -38,9 +38,9 @@ window.addEventListener('DOMContentLoaded', async () => {
 	// eslint-disable-next-line default-case
 	switch (window.location.pathname) {
 	case ROUTES.Home:
-	case ROUTES.Signup:
-		isProtectedRoute = false;
-		break;
+	// case ROUTES.Signup:
+	// 	isProtectedRoute = false;
+	// 	break;
 	}
 
 	try {
