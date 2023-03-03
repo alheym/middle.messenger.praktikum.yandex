@@ -92,7 +92,7 @@
   },
 	"husky": {
     "hooks": {
-      "pre-commit": "eslint ./src/**/*.ts && stylelint ./src/**/*.scss",
+      "pre-commit": "npm-run-all test lint:all",
       "pre-push": "npm run other command"
     }
   }
