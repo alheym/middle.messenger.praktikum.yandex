@@ -2,7 +2,6 @@ import './_error.scss';
 import Block from '../../utils/Block';
 import template from './Error.hbs';
 
-
 interface IError {
 	type?: string,
 	title: string,
@@ -20,4 +19,3 @@ export class Error extends Block<IError> {
 		return this.compile(template, { ...this.props });
 	}
 }
-

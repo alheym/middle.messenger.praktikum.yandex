@@ -7,11 +7,8 @@ import { InputEdit } from '../../components/InputEdit/InputEdit';
 import { withStore } from '../../utils/Store';
 import AuthController from '../../controllers/AuthController';
 
-
 export class Profile extends Block {
-
 	protected initChildren() {
-
 		this.children.avatar = new Avatar({
 			display_name: this.props.display_name,
 			value: `https://ya-praktikum.tech/api/v2/resources/${this.props.avatar}`,
@@ -24,7 +21,7 @@ export class Profile extends Block {
 			type: 'email',
 			placeholder: this.props.email,
 			property: 'readonly',
-			classInput: 'readonly'
+			classInput: 'readonly',
 		});
 
 		this.children.inputLogin = new InputEdit({
@@ -33,7 +30,7 @@ export class Profile extends Block {
 			type: 'login',
 			placeholder: this.props.login,
 			property: 'readonly',
-			classInput: 'readonly'
+			classInput: 'readonly',
 
 		});
 
@@ -43,7 +40,7 @@ export class Profile extends Block {
 			type: 'phone',
 			placeholder: this.props.phone,
 			property: 'readonly',
-			classInput: 'readonly'
+			classInput: 'readonly',
 
 		});
 
@@ -53,7 +50,7 @@ export class Profile extends Block {
 			type: 'text',
 			placeholder: this.props.display_name,
 			property: 'readonly',
-			classInput: 'readonly'
+			classInput: 'readonly',
 
 		});
 
@@ -63,7 +60,7 @@ export class Profile extends Block {
 			type: 'text',
 			placeholder: this.props.first_name,
 			property: 'readonly',
-			classInput: 'readonly'
+			classInput: 'readonly',
 
 		});
 
@@ -73,7 +70,7 @@ export class Profile extends Block {
 			type: 'text',
 			placeholder: this.props.second_name,
 			property: 'readonly',
-			classInput: 'readonly'
+			classInput: 'readonly',
 
 		});
 
@@ -84,7 +81,7 @@ export class Profile extends Block {
 				click: (e: Event) => {
 					e.preventDefault();
 					document.location = '/editPass';
-				}
+				},
 			},
 		});
 
@@ -95,7 +92,7 @@ export class Profile extends Block {
 				click: (e: Event) => {
 					e.preventDefault();
 					document.location = '/settings';
-				}
+				},
 			},
 		});
 
@@ -106,9 +103,9 @@ export class Profile extends Block {
 				click: (e: Event) => {
 					e.preventDefault();
 					AuthController.logout();
-				}
+				},
 			},
-		})
+		});
 	}
 
 	render() {

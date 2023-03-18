@@ -3,6 +3,7 @@ import BaseAPI from './BaseAPI';
 export interface EditUser {
 	first_name: string;
 	second_name: string;
+	display_name: string;
 	login: string;
 	email: string;
 	phone: string;
@@ -34,7 +35,6 @@ export class UserAPI extends BaseAPI {
 		return this.http.put('/profile', data);
 	}
 
-
 	editPass(data: EditPassword) {
 		return this.http.put('/password', data);
 	}
@@ -56,7 +56,9 @@ export class UserAPI extends BaseAPI {
 	}
 
 	create = undefined;
+
 	update = undefined;
+
 	delete = undefined;
 }
 

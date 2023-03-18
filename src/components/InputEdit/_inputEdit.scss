@@ -1,41 +1,38 @@
-@import '../../variables/variables';
-@import '../../variables/font';
+@import "../../variables/variables";
+@import "../../variables/font";
 
 .profile {
+  &__menu {
+    &-item {
+      border-bottom: 1px solid #eaeaea;
+      justify-content: space-between;
+      display: flex;
+      height: 33px;
+      padding: 5px 15px 0;
 
-    &__menu {
+      &:first-child {
+        border-top: 1px solid #eaeaea;
+      }
 
-        &-item {
-            border-bottom: 1px solid #eaeaea;
-            justify-content: space-between;
-            padding-bottom: 10px;
-            display: flex;
-            height: 33px;
-            padding: 5px 15px 0;
-
-            &:first-child {
-                border-top: 1px solid #eaeaea;
-            }
-
-            &:hover,
-            :active {
-                background-color: $main-color;
-            }
-        }
-
-        &-label {
-            margin: 10px 0;
-            color: #1E1E1E;
-            text-align: left;
-			caret-color: transparent;
-			cursor: default;
-        }
-
-        &-input {
-            text-align: right;
-            background: none;
-            border: none;
-            outline: none;
-        }
+      &:hover,
+      :active {
+        background-color: $main-color;
+      }
     }
+
+    &-label {
+      margin: 10px 0;
+      color: #1e1e1e;
+      text-align: left;
+      caret-color: transparent;
+      cursor: default;
+    }
+
+    &-input {
+      text-align: right;
+      background: none;
+      border: none;
+      outline: none;
+    }
+  }
 }
