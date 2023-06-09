@@ -98,7 +98,7 @@ export class Profile extends Block {
 
 		this.children.btnOut = new Button({
 			text: 'Выйти',
-			className: 'button__link red',
+			className: 'button__link button__left red',
 			events: {
 				click: (e: Event) => {
 					e.preventDefault();

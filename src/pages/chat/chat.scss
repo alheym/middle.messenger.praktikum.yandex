@@ -3,6 +3,7 @@ body {
   height: 100vh;
   overflow-y: hidden;
   margin-bottom: 5px;
+	margin: 0;
 }
 
 .chat {
@@ -16,6 +17,7 @@ body {
   }
 
   &__main {
+		padding: 2px 5px 0 5px;
     display: flex;
     flex-direction: column;
     border-right: 1px solid #eaeaea;
@@ -71,9 +73,10 @@ body {
   }
 
   &__list {
-    height: 670px;
+    height: 793px;
     width: 310px;
     overflow-y: auto;
+		padding-bottom: 10px;
   }
 }
 
@@ -81,6 +84,8 @@ body {
   &__main {
     flex-grow: 1;
     padding: 0 20px;
+
+    position: relative;
   }
 
   &__info {
@@ -98,7 +103,8 @@ body {
       height: 34px;
       width: 34px;
       border-radius: 50px;
-      background: #efefef;
+      background-image: url(../../image/avatar.png);
+			background-size: 34px 34px;
       margin-bottom: 10px;
       margin-right: 10px;
       cursor: default;
@@ -163,11 +169,24 @@ body {
   }
 
   &__input {
+    // display: flex;
+    // height: 43px;
+    // justify-content: space-between;
+    // border-top: 1px solid #eaeaea;
+    // padding-top: 11px;
+    position: absolute;
+    /* Используйте абсолютное позиционирование */
+    bottom: 20px;
+    /* Прижмите к нижнему краю */
+    left: 0;
     display: flex;
     height: 43px;
     justify-content: space-between;
     border-top: 1px solid #eaeaea;
     padding-top: 11px;
+    width: 100%;
+    /* Растяните на всю доступную ширину */
+    box-sizing: border-box;
 
     &-add {
       margin-right: 10px;
