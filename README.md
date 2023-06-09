@@ -1,3 +1,6 @@
+![Node.js](https://img.shields.io/badge/Node-v18.12.1-green)  ![languages](https://img.shields.io/github/languages/count/alheym/middle.messenger.praktikum.yandex) ![typescript](https://img.shields.io/github/languages/top/alheym/middle.messenger.praktikum.yandex)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1c371761-603d-4972-9ae5-ee46d9d61831/deploy-status)](https://app.netlify.com/sites/bucolic-custard-91416d/deploys)
+
 # Веб-приложение "Чат"
 
 Учебный проект по курсу Яндекс.Практикум - чат без использования фреймворков.
@@ -13,7 +16,7 @@
 ## Стек
 <div>
 	<img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TS" alt="TS" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JS" alt="JS" width="40" height="40"/>&nbsp;
+  	<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JS" alt="JS" width="40" height="40"/>&nbsp;
 	<img src="https://github.com/devicons/devicon/blob/master/icons/handlebars/handlebars-original.svg" title="Handlebars" alt="Handlebars" width="40" height="40"/>&nbsp;
 	<img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="Sass" alt="Sass" width="40" height="40"/>&nbsp;
 	<img src="https://github.com/devicons/devicon/blob/master/icons/mocha/mocha-plain.svg" title="Mocha" alt="Mocha" width="40" height="40"/>&nbsp;
@@ -39,7 +42,7 @@ pre-commit: husky 🐶
 ## UI
 [Макет](https://www.figma.com/file/yADVuj8HwHwK5jsdOhMwFK/messenger.yandex.praktikum?node-id=0%3A1&t=EUFbIzlvOysRbPEG-0)
 
-## Netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/1c371761-603d-4972-9ae5-ee46d9d61831/deploy-status)](https://app.netlify.com/sites/bucolic-custard-91416d/deploys)
+## Netlify
 [Netlify](https://bucolic-custard-91416d.netlify.app/)
 
 Приложение запустится на странице авторизации, если пользователь авторизован то происходит редирект на страницу чатов
