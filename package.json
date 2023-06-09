@@ -2,15 +2,13 @@
 	"name": "messenger",
 	"version": "1.0.0",
 	"scripts": {
-		"dev": "parcel src/index.html --no-cache --open",
+		"dev": "webpack serve",
 		"build": "webpack --mode=production --node-env=production",
-		"start": "node server.js",
+		"start": "npm run build && node server.js",
 		"build:dev": "webpack --mode=development --progress && webpack serve",
 		"build:prod": "webpack --mode=production --node-env=production",
 		"test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
-		"lint": "eslint ./src/**/*.ts && stylelint ./src/**/*.scss",
-		"serve": "webpack serve",
-		"prepare": "husky install"
+		"lint": "eslint ./src/**/*.ts && stylelint ./src/**/*.scss"
 	},
 	"lint-staged": {
 		"*.ts": "eslint",

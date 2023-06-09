@@ -10,8 +10,6 @@ import { withStore } from '../../utils/Store';
 
 export class Chat extends Block {
 	protected initChildren() {
-		// console.log(this.props);
-
 		this.children.chatList = [];
 
 		if (this.props?.allChats !== undefined) {
@@ -80,7 +78,7 @@ export class Chat extends Block {
 			className: 'button__add',
 			events: {
 				// eslint-disable-next-line no-empty-function
-				click: () => {},
+				click: () => { },
 			},
 		});
 
