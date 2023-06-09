@@ -44,10 +44,17 @@ const config = {
 				use: [stylesHandler, 'css-loader', 'sass-loader'],
 			},
 			{
-				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-				type: 'asset',
+				test: /\.(png|jpe?g|gif)$/i,
+				type: 'asset/resource',
+				generator: {
+					filename: 'image/[name][ext]',
+				},
 			},
 
+			{
+				test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+				type: 'asset/inline',
+			},
 			// Add your rules for custom modules here
 			// Learn more about loaders from https://webpack.js.org/loaders/
 		],
