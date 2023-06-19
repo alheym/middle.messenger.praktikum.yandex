@@ -58,7 +58,7 @@ npm run test
 [Макет](https://www.figma.com/file/yADVuj8HwHwK5jsdOhMwFK/messenger.yandex.praktikum?node-id=0%3A1&t=EUFbIzlvOysRbPEG-0)
 
 ## Netlify
-[Netlify](https://bucolic-custard-91416d.netlify.app/)
+[Netlify](https://messenger-practikum.netlify.app/)
 
 Приложение запустится на странице авторизации, если пользователь авторизован то происходит редирект на страницу чатов
 
